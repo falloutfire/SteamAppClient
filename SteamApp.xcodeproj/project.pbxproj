@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F355B4B2711D79600468310 /* FeaturedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */; };
+		3F355B4C2711D79600468310 /* FeaturedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */; };
 		3F4F76C32710AFB00032A48B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76C22710AFB00032A48B /* AppDelegate.swift */; };
 		3F4F76C52710AFB00032A48B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76C42710AFB00032A48B /* SceneDelegate.swift */; };
 		3F4F76C72710AFB00032A48B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76C62710AFB00032A48B /* ViewController.swift */; };
@@ -17,6 +19,92 @@
 		3F4F76DD2710AFB20032A48B /* SteamAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76DC2710AFB20032A48B /* SteamAppTests.swift */; };
 		3F4F76E72710AFB20032A48B /* SteamAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76E62710AFB20032A48B /* SteamAppUITests.swift */; };
 		3F4F76E92710AFB20032A48B /* SteamAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76E82710AFB20032A48B /* SteamAppUITestsLaunchTests.swift */; };
+		3F4F77112710AFD10032A48B /* MainViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76F62710AFD00032A48B /* MainViewHeaderCell.swift */; };
+		3F4F77122710AFD10032A48B /* MainViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76F62710AFD00032A48B /* MainViewHeaderCell.swift */; };
+		3F4F77132710AFD10032A48B /* MainViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76F62710AFD00032A48B /* MainViewHeaderCell.swift */; };
+		3F4F77142710AFD10032A48B /* PokedexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76F72710AFD00032A48B /* PokedexCell.swift */; };
+		3F4F77152710AFD10032A48B /* PokedexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76F72710AFD00032A48B /* PokedexCell.swift */; };
+		3F4F77162710AFD10032A48B /* PokedexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76F72710AFD00032A48B /* PokedexCell.swift */; };
+		3F4F77172710AFD10032A48B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FA2710AFD00032A48B /* UIView.swift */; };
+		3F4F77182710AFD10032A48B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FA2710AFD00032A48B /* UIView.swift */; };
+		3F4F77192710AFD10032A48B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FA2710AFD00032A48B /* UIView.swift */; };
+		3F4F771A2710AFD10032A48B /* UIViewController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FB2710AFD00032A48B /* UIViewController+Router.swift */; };
+		3F4F771B2710AFD10032A48B /* UIViewController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FB2710AFD00032A48B /* UIViewController+Router.swift */; };
+		3F4F771C2710AFD10032A48B /* UIViewController+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FB2710AFD00032A48B /* UIViewController+Router.swift */; };
+		3F4F771D2710AFD10032A48B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FC2710AFD00032A48B /* Router.swift */; };
+		3F4F771E2710AFD10032A48B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FC2710AFD00032A48B /* Router.swift */; };
+		3F4F771F2710AFD10032A48B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FC2710AFD00032A48B /* Router.swift */; };
+		3F4F77202710AFD10032A48B /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FD2710AFD00032A48B /* UIViewController+Preview.swift */; };
+		3F4F77212710AFD10032A48B /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FD2710AFD00032A48B /* UIViewController+Preview.swift */; };
+		3F4F77222710AFD10032A48B /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FD2710AFD00032A48B /* UIViewController+Preview.swift */; };
+		3F4F77232710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FF2710AFD00032A48B /* AppNavigationConfiguration.swift */; };
+		3F4F77242710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FF2710AFD00032A48B /* AppNavigationConfiguration.swift */; };
+		3F4F77252710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76FF2710AFD00032A48B /* AppNavigationConfiguration.swift */; };
+		3F4F77262710AFD10032A48B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77012710AFD00032A48B /* MainViewController.swift */; };
+		3F4F77272710AFD10032A48B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77012710AFD00032A48B /* MainViewController.swift */; };
+		3F4F77282710AFD10032A48B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77012710AFD00032A48B /* MainViewController.swift */; };
+		3F4F77292710AFD10032A48B /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77022710AFD00032A48B /* InitViewController.swift */; };
+		3F4F772A2710AFD10032A48B /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77022710AFD00032A48B /* InitViewController.swift */; };
+		3F4F772B2710AFD10032A48B /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77022710AFD00032A48B /* InitViewController.swift */; };
+		3F4F772C2710AFD10032A48B /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77052710AFD00032A48B /* ApiError.swift */; };
+		3F4F772D2710AFD10032A48B /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77052710AFD00032A48B /* ApiError.swift */; };
+		3F4F772E2710AFD10032A48B /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77052710AFD00032A48B /* ApiError.swift */; };
+		3F4F772F2710AFD10032A48B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77062710AFD00032A48B /* ApiClient.swift */; };
+		3F4F77302710AFD10032A48B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77062710AFD00032A48B /* ApiClient.swift */; };
+		3F4F77312710AFD10032A48B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77062710AFD00032A48B /* ApiClient.swift */; };
+		3F4F77322710AFD10032A48B /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77072710AFD00032A48B /* NetworkLogger.swift */; };
+		3F4F77332710AFD10032A48B /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77072710AFD00032A48B /* NetworkLogger.swift */; };
+		3F4F77342710AFD10032A48B /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77072710AFD00032A48B /* NetworkLogger.swift */; };
+		3F4F77352710AFD10032A48B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77082710AFD00032A48B /* Endpoint.swift */; };
+		3F4F77362710AFD10032A48B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77082710AFD00032A48B /* Endpoint.swift */; };
+		3F4F77372710AFD10032A48B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77082710AFD00032A48B /* Endpoint.swift */; };
+		3F4F77382710AFD10032A48B /* PokemonBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770A2710AFD10032A48B /* PokemonBanner.swift */; };
+		3F4F77392710AFD10032A48B /* PokemonBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770A2710AFD10032A48B /* PokemonBanner.swift */; };
+		3F4F773A2710AFD10032A48B /* PokemonBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770A2710AFD10032A48B /* PokemonBanner.swift */; };
+		3F4F773B2710AFD10032A48B /* PokemonCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */; };
+		3F4F773C2710AFD10032A48B /* PokemonCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */; };
+		3F4F773D2710AFD10032A48B /* PokemonCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */; };
+		3F4F773E2710AFD10032A48B /* PokemonCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770C2710AFD10032A48B /* PokemonCollections.swift */; };
+		3F4F773F2710AFD10032A48B /* PokemonCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770C2710AFD10032A48B /* PokemonCollections.swift */; };
+		3F4F77402710AFD10032A48B /* PokemonCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770C2710AFD10032A48B /* PokemonCollections.swift */; };
+		3F4F77412710AFD10032A48B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770E2710AFD10032A48B /* BindableType.swift */; };
+		3F4F77422710AFD10032A48B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770E2710AFD10032A48B /* BindableType.swift */; };
+		3F4F77432710AFD10032A48B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770E2710AFD10032A48B /* BindableType.swift */; };
+		3F4F77442710AFD10032A48B /* NibIdetifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770F2710AFD10032A48B /* NibIdetifiable.swift */; };
+		3F4F77452710AFD10032A48B /* NibIdetifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770F2710AFD10032A48B /* NibIdetifiable.swift */; };
+		3F4F77462710AFD10032A48B /* NibIdetifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770F2710AFD10032A48B /* NibIdetifiable.swift */; };
+		3F4F77472710AFD10032A48B /* AppGenericContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77102710AFD10032A48B /* AppGenericContextTask.swift */; };
+		3F4F77482710AFD10032A48B /* AppGenericContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77102710AFD10032A48B /* AppGenericContextTask.swift */; };
+		3F4F77492710AFD10032A48B /* AppGenericContextTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77102710AFD10032A48B /* AppGenericContextTask.swift */; };
+		3F6827DE2710B244004E53CB /* FeaturedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827DD2710B244004E53CB /* FeaturedItemCell.swift */; };
+		3F6827E02710B9CA004E53CB /* FeaturedApiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827DF2710B9CA004E53CB /* FeaturedApiItem.swift */; };
+		3F6827E12710B9CA004E53CB /* FeaturedApiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827DF2710B9CA004E53CB /* FeaturedApiItem.swift */; };
+		3F6827E22710B9CA004E53CB /* FeaturedApiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827DF2710B9CA004E53CB /* FeaturedApiItem.swift */; };
+		3F6827E42710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827E32710BA1B004E53CB /* FeaturedApiCollection.swift */; };
+		3F6827E52710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827E32710BA1B004E53CB /* FeaturedApiCollection.swift */; };
+		3F6827E62710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827E32710BA1B004E53CB /* FeaturedApiCollection.swift */; };
+		3F6827E82710C2C6004E53CB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827E72710C2C6004E53CB /* UIColor.swift */; };
+		3F6827E92710C2C6004E53CB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827E72710C2C6004E53CB /* UIColor.swift */; };
+		3F6827EA2710C2C6004E53CB /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827E72710C2C6004E53CB /* UIColor.swift */; };
+		3F6827EC2710C52C004E53CB /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827EB2710C52C004E53CB /* Numbers.swift */; };
+		3F6827ED2710C52C004E53CB /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827EB2710C52C004E53CB /* Numbers.swift */; };
+		3F6827EE2710C52C004E53CB /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827EB2710C52C004E53CB /* Numbers.swift */; };
+		3F6827F02710C8C7004E53CB /* ImageURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827EF2710C8C7004E53CB /* ImageURLProtocol.swift */; };
+		3F6827F12710C8C7004E53CB /* ImageURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827EF2710C8C7004E53CB /* ImageURLProtocol.swift */; };
+		3F6827F22710C8C7004E53CB /* ImageURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827EF2710C8C7004E53CB /* ImageURLProtocol.swift */; };
+		3F6827F42710E00B004E53CB /* FeaturedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827F32710E00B004E53CB /* FeaturedRepository.swift */; };
+		3F6827F52710E00B004E53CB /* FeaturedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827F32710E00B004E53CB /* FeaturedRepository.swift */; };
+		3F6827F82710E038004E53CB /* FeaturedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827F72710E038004E53CB /* FeaturedProvider.swift */; };
+		3F6827F92710E038004E53CB /* FeaturedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827F72710E038004E53CB /* FeaturedProvider.swift */; };
+		3F6827FB2710E318004E53CB /* FeaturedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FA2710E318004E53CB /* FeaturedClient.swift */; };
+		3F6827FC2710E318004E53CB /* FeaturedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FA2710E318004E53CB /* FeaturedClient.swift */; };
+		3F6827FF2710E720004E53CB /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FE2710E720004E53CB /* FeaturedItem.swift */; };
+		3F6828002710E720004E53CB /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FE2710E720004E53CB /* FeaturedItem.swift */; };
+		3F6828022710F154004E53CB /* FeaturedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6828012710F154004E53CB /* FeaturedViewModel.swift */; };
+		3F6828032710F154004E53CB /* FeaturedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6828012710F154004E53CB /* FeaturedViewModel.swift */; };
+		7E362189F053D3E11FA5AA4B /* Pods_SteamAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F7E8B4300E349E0C24390B /* Pods_SteamAppTests.framework */; };
+		9B834F89CB5FA6FB037FF68A /* Pods_SteamApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F975325AC61EAB7721C3303 /* Pods_SteamApp.framework */; };
+		F4B9507C11BC6F8BAA481AD8 /* Pods_SteamApp_SteamAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ED0CE760C200132111BB81 /* Pods_SteamApp_SteamAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +125,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22ED0CE760C200132111BB81 /* Pods_SteamApp_SteamAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamApp_SteamAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCellViewModel.swift; sourceTree = "<group>"; };
 		3F4F76BF2710AFB00032A48B /* SteamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4F76C22710AFB00032A48B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F4F76C42710AFB00032A48B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +141,44 @@
 		3F4F76E22710AFB20032A48B /* SteamAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SteamAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4F76E62710AFB20032A48B /* SteamAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamAppUITests.swift; sourceTree = "<group>"; };
 		3F4F76E82710AFB20032A48B /* SteamAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3F4F76F62710AFD00032A48B /* MainViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewHeaderCell.swift; sourceTree = "<group>"; };
+		3F4F76F72710AFD00032A48B /* PokedexCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokedexCell.swift; sourceTree = "<group>"; };
+		3F4F76FA2710AFD00032A48B /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3F4F76FB2710AFD00032A48B /* UIViewController+Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Router.swift"; sourceTree = "<group>"; };
+		3F4F76FC2710AFD00032A48B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		3F4F76FD2710AFD00032A48B /* UIViewController+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
+		3F4F76FF2710AFD00032A48B /* AppNavigationConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationConfiguration.swift; sourceTree = "<group>"; };
+		3F4F77012710AFD00032A48B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3F4F77022710AFD00032A48B /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		3F4F77052710AFD00032A48B /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		3F4F77062710AFD00032A48B /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		3F4F77072710AFD00032A48B /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		3F4F77082710AFD00032A48B /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3F4F770A2710AFD10032A48B /* PokemonBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonBanner.swift; sourceTree = "<group>"; };
+		3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCatalogue.swift; sourceTree = "<group>"; };
+		3F4F770C2710AFD10032A48B /* PokemonCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCollections.swift; sourceTree = "<group>"; };
+		3F4F770E2710AFD10032A48B /* BindableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
+		3F4F770F2710AFD10032A48B /* NibIdetifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdetifiable.swift; sourceTree = "<group>"; };
+		3F4F77102710AFD10032A48B /* AppGenericContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGenericContextTask.swift; sourceTree = "<group>"; };
+		3F6827DD2710B244004E53CB /* FeaturedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItemCell.swift; sourceTree = "<group>"; };
+		3F6827DF2710B9CA004E53CB /* FeaturedApiItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedApiItem.swift; sourceTree = "<group>"; };
+		3F6827E32710BA1B004E53CB /* FeaturedApiCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedApiCollection.swift; sourceTree = "<group>"; };
+		3F6827E72710C2C6004E53CB /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3F6827EB2710C52C004E53CB /* Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		3F6827EF2710C8C7004E53CB /* ImageURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLProtocol.swift; sourceTree = "<group>"; };
+		3F6827F32710E00B004E53CB /* FeaturedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRepository.swift; sourceTree = "<group>"; };
+		3F6827F72710E038004E53CB /* FeaturedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedProvider.swift; sourceTree = "<group>"; };
+		3F6827FA2710E318004E53CB /* FeaturedClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedClient.swift; sourceTree = "<group>"; };
+		3F6827FE2710E720004E53CB /* FeaturedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItem.swift; sourceTree = "<group>"; };
+		3F6828012710F154004E53CB /* FeaturedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewModel.swift; sourceTree = "<group>"; };
+		409B08269349FA8B65DA9661 /* Pods-SteamApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp.release.xcconfig"; path = "Target Support Files/Pods-SteamApp/Pods-SteamApp.release.xcconfig"; sourceTree = "<group>"; };
+		655578B479DAAD670FC7EABD /* Pods-SteamAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SteamAppTests/Pods-SteamAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F975325AC61EAB7721C3303 /* Pods_SteamApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F7E8B4300E349E0C24390B /* Pods_SteamAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D733BF9AB30AE255869F7E79 /* Pods-SteamAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamAppTests.release.xcconfig"; path = "Target Support Files/Pods-SteamAppTests/Pods-SteamAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA1C3950B77BC157BEF4C05B /* Pods-SteamApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp.debug.xcconfig"; path = "Target Support Files/Pods-SteamApp/Pods-SteamApp.debug.xcconfig"; sourceTree = "<group>"; };
+		EEF3D7F0EC711BE4D74A6D5E /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp-SteamAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD04058274A97CEEA16F0059 /* Pods-SteamApp-SteamAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp-SteamAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B834F89CB5FA6FB037FF68A /* Pods_SteamApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E362189F053D3E11FA5AA4B /* Pods_SteamAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +202,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B9507C11BC6F8BAA481AD8 /* Pods_SteamApp_SteamAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F9DDF8C54A9762471FD83E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F975325AC61EAB7721C3303 /* Pods_SteamApp.framework */,
+				22ED0CE760C200132111BB81 /* Pods_SteamApp_SteamAppUITests.framework */,
+				A1F7E8B4300E349E0C24390B /* Pods_SteamAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3F4F76B62710AFB00032A48B = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +226,8 @@
 				3F4F76DB2710AFB20032A48B /* SteamAppTests */,
 				3F4F76E52710AFB20032A48B /* SteamAppUITests */,
 				3F4F76C02710AFB00032A48B /* Products */,
+				E8DB89345F95098A0783FCF2 /* Pods */,
+				17F9DDF8C54A9762471FD83E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +244,14 @@
 		3F4F76C12710AFB00032A48B /* SteamApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F4F77002710AFD00032A48B /* Controllers */,
+				3F4F77042710AFD00032A48B /* Dataservice */,
+				3F4F76F92710AFD00032A48B /* Extensions */,
+				3F4F76FE2710AFD00032A48B /* NavigationConfiguration */,
+				3F4F77032710AFD00032A48B /* Repositories */,
+				3F4F770D2710AFD10032A48B /* Utilities */,
+				3F4F76F52710AFD00032A48B /* View */,
+				3F4F76F82710AFD00032A48B /* ViewModels */,
 				3F4F76C22710AFB00032A48B /* AppDelegate.swift */,
 				3F4F76C42710AFB00032A48B /* SceneDelegate.swift */,
 				3F4F76C62710AFB00032A48B /* ViewController.swift */,
@@ -130,6 +281,130 @@
 			path = SteamAppUITests;
 			sourceTree = "<group>";
 		};
+		3F4F76F52710AFD00032A48B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F76F62710AFD00032A48B /* MainViewHeaderCell.swift */,
+				3F4F76F72710AFD00032A48B /* PokedexCell.swift */,
+				3F6827DD2710B244004E53CB /* FeaturedItemCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F4F76F82710AFD00032A48B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3F6828012710F154004E53CB /* FeaturedViewModel.swift */,
+				3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3F4F76F92710AFD00032A48B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F76FA2710AFD00032A48B /* UIView.swift */,
+				3F4F76FB2710AFD00032A48B /* UIViewController+Router.swift */,
+				3F4F76FC2710AFD00032A48B /* Router.swift */,
+				3F4F76FD2710AFD00032A48B /* UIViewController+Preview.swift */,
+				3F6827E72710C2C6004E53CB /* UIColor.swift */,
+				3F6827EB2710C52C004E53CB /* Numbers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3F4F76FE2710AFD00032A48B /* NavigationConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F76FF2710AFD00032A48B /* AppNavigationConfiguration.swift */,
+			);
+			path = NavigationConfiguration;
+			sourceTree = "<group>";
+		};
+		3F4F77002710AFD00032A48B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F77012710AFD00032A48B /* MainViewController.swift */,
+				3F4F77022710AFD00032A48B /* InitViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3F4F77032710AFD00032A48B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3F6827FD2710E702004E53CB /* Models */,
+				3F6827F32710E00B004E53CB /* FeaturedRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3F4F77042710AFD00032A48B /* Dataservice */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F77092710AFD10032A48B /* Models */,
+				3F6827F62710E014004E53CB /* Featured */,
+				3F4F77052710AFD00032A48B /* ApiError.swift */,
+				3F4F77062710AFD00032A48B /* ApiClient.swift */,
+				3F4F77072710AFD00032A48B /* NetworkLogger.swift */,
+				3F4F77082710AFD00032A48B /* Endpoint.swift */,
+				3F6827EF2710C8C7004E53CB /* ImageURLProtocol.swift */,
+			);
+			path = Dataservice;
+			sourceTree = "<group>";
+		};
+		3F4F77092710AFD10032A48B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F770A2710AFD10032A48B /* PokemonBanner.swift */,
+				3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */,
+				3F4F770C2710AFD10032A48B /* PokemonCollections.swift */,
+				3F6827DF2710B9CA004E53CB /* FeaturedApiItem.swift */,
+				3F6827E32710BA1B004E53CB /* FeaturedApiCollection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3F4F770D2710AFD10032A48B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3F4F770E2710AFD10032A48B /* BindableType.swift */,
+				3F4F770F2710AFD10032A48B /* NibIdetifiable.swift */,
+				3F4F77102710AFD10032A48B /* AppGenericContextTask.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3F6827F62710E014004E53CB /* Featured */ = {
+			isa = PBXGroup;
+			children = (
+				3F6827F72710E038004E53CB /* FeaturedProvider.swift */,
+				3F6827FA2710E318004E53CB /* FeaturedClient.swift */,
+			);
+			path = Featured;
+			sourceTree = "<group>";
+		};
+		3F6827FD2710E702004E53CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F6827FE2710E720004E53CB /* FeaturedItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E8DB89345F95098A0783FCF2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA1C3950B77BC157BEF4C05B /* Pods-SteamApp.debug.xcconfig */,
+				409B08269349FA8B65DA9661 /* Pods-SteamApp.release.xcconfig */,
+				EEF3D7F0EC711BE4D74A6D5E /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */,
+				FD04058274A97CEEA16F0059 /* Pods-SteamApp-SteamAppUITests.release.xcconfig */,
+				655578B479DAAD670FC7EABD /* Pods-SteamAppTests.debug.xcconfig */,
+				D733BF9AB30AE255869F7E79 /* Pods-SteamAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +412,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4F76EC2710AFB20032A48B /* Build configuration list for PBXNativeTarget "SteamApp" */;
 			buildPhases = (
+				4EFAEB1F7BB60B70E1C6D7AB /* [CP] Check Pods Manifest.lock */,
 				3F4F76BB2710AFB00032A48B /* Sources */,
 				3F4F76BC2710AFB00032A48B /* Frameworks */,
 				3F4F76BD2710AFB00032A48B /* Resources */,
+				CB928A4E23E79A027A7DCEE1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +431,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4F76EF2710AFB20032A48B /* Build configuration list for PBXNativeTarget "SteamAppTests" */;
 			buildPhases = (
+				20CE6A6CA1FD6AAD77A58C7B /* [CP] Check Pods Manifest.lock */,
 				3F4F76D42710AFB20032A48B /* Sources */,
 				3F4F76D52710AFB20032A48B /* Frameworks */,
 				3F4F76D62710AFB20032A48B /* Resources */,
@@ -172,9 +450,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4F76F22710AFB20032A48B /* Build configuration list for PBXNativeTarget "SteamAppUITests" */;
 			buildPhases = (
+				F0400F47D22C5CC1DCDEAC05 /* [CP] Check Pods Manifest.lock */,
 				3F4F76DE2710AFB20032A48B /* Sources */,
 				3F4F76DF2710AFB20032A48B /* Frameworks */,
 				3F4F76E02710AFB20032A48B /* Resources */,
+				66EFC5672A3E3330905D2276 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,7 +490,7 @@
 				};
 			};
 			buildConfigurationList = 3F4F76BA2710AFB00032A48B /* Build configuration list for PBXProject "SteamApp" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -256,15 +536,149 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20CE6A6CA1FD6AAD77A58C7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SteamAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EFAEB1F7BB60B70E1C6D7AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SteamApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66EFC5672A3E3330905D2276 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB928A4E23E79A027A7DCEE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0400F47D22C5CC1DCDEAC05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SteamApp-SteamAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F4F76BB2710AFB00032A48B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4F77112710AFD10032A48B /* MainViewHeaderCell.swift in Sources */,
+				3F4F771A2710AFD10032A48B /* UIViewController+Router.swift in Sources */,
 				3F4F76CD2710AFB00032A48B /* SteamApp.xcdatamodeld in Sources */,
+				3F4F77262710AFD10032A48B /* MainViewController.swift in Sources */,
+				3F4F77142710AFD10032A48B /* PokedexCell.swift in Sources */,
+				3F6827F42710E00B004E53CB /* FeaturedRepository.swift in Sources */,
+				3F4F77292710AFD10032A48B /* InitViewController.swift in Sources */,
+				3F4F77232710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */,
+				3F4F772C2710AFD10032A48B /* ApiError.swift in Sources */,
+				3F4F77322710AFD10032A48B /* NetworkLogger.swift in Sources */,
+				3F4F771D2710AFD10032A48B /* Router.swift in Sources */,
+				3F4F77412710AFD10032A48B /* BindableType.swift in Sources */,
+				3F355B4B2711D79600468310 /* FeaturedCellViewModel.swift in Sources */,
+				3F4F77172710AFD10032A48B /* UIView.swift in Sources */,
+				3F4F77442710AFD10032A48B /* NibIdetifiable.swift in Sources */,
+				3F4F77472710AFD10032A48B /* AppGenericContextTask.swift in Sources */,
+				3F4F773E2710AFD10032A48B /* PokemonCollections.swift in Sources */,
+				3F6827E42710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */,
+				3F6827FF2710E720004E53CB /* FeaturedItem.swift in Sources */,
+				3F6827F82710E038004E53CB /* FeaturedProvider.swift in Sources */,
+				3F6827EC2710C52C004E53CB /* Numbers.swift in Sources */,
 				3F4F76C72710AFB00032A48B /* ViewController.swift in Sources */,
+				3F6827DE2710B244004E53CB /* FeaturedItemCell.swift in Sources */,
+				3F4F773B2710AFD10032A48B /* PokemonCatalogue.swift in Sources */,
+				3F6827E02710B9CA004E53CB /* FeaturedApiItem.swift in Sources */,
+				3F4F77202710AFD10032A48B /* UIViewController+Preview.swift in Sources */,
 				3F4F76C32710AFB00032A48B /* AppDelegate.swift in Sources */,
+				3F6827F02710C8C7004E53CB /* ImageURLProtocol.swift in Sources */,
+				3F6827E82710C2C6004E53CB /* UIColor.swift in Sources */,
+				3F6828022710F154004E53CB /* FeaturedViewModel.swift in Sources */,
 				3F4F76C52710AFB00032A48B /* SceneDelegate.swift in Sources */,
+				3F4F77382710AFD10032A48B /* PokemonBanner.swift in Sources */,
+				3F4F77352710AFD10032A48B /* Endpoint.swift in Sources */,
+				3F6827FB2710E318004E53CB /* FeaturedClient.swift in Sources */,
+				3F4F772F2710AFD10032A48B /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +686,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4F77362710AFD10032A48B /* Endpoint.swift in Sources */,
+				3F4F772D2710AFD10032A48B /* ApiError.swift in Sources */,
+				3F4F77242710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */,
+				3F6827E52710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */,
+				3F4F77182710AFD10032A48B /* UIView.swift in Sources */,
+				3F4F772A2710AFD10032A48B /* InitViewController.swift in Sources */,
+				3F4F773F2710AFD10032A48B /* PokemonCollections.swift in Sources */,
+				3F4F77212710AFD10032A48B /* UIViewController+Preview.swift in Sources */,
+				3F4F77452710AFD10032A48B /* NibIdetifiable.swift in Sources */,
+				3F4F77482710AFD10032A48B /* AppGenericContextTask.swift in Sources */,
+				3F6828032710F154004E53CB /* FeaturedViewModel.swift in Sources */,
+				3F6827E92710C2C6004E53CB /* UIColor.swift in Sources */,
+				3F4F77392710AFD10032A48B /* PokemonBanner.swift in Sources */,
+				3F4F77332710AFD10032A48B /* NetworkLogger.swift in Sources */,
+				3F6827F12710C8C7004E53CB /* ImageURLProtocol.swift in Sources */,
+				3F6827E12710B9CA004E53CB /* FeaturedApiItem.swift in Sources */,
+				3F4F77122710AFD10032A48B /* MainViewHeaderCell.swift in Sources */,
+				3F4F77422710AFD10032A48B /* BindableType.swift in Sources */,
+				3F6827F52710E00B004E53CB /* FeaturedRepository.swift in Sources */,
+				3F6827FC2710E318004E53CB /* FeaturedClient.swift in Sources */,
 				3F4F76DD2710AFB20032A48B /* SteamAppTests.swift in Sources */,
+				3F4F771B2710AFD10032A48B /* UIViewController+Router.swift in Sources */,
+				3F4F77272710AFD10032A48B /* MainViewController.swift in Sources */,
+				3F4F771E2710AFD10032A48B /* Router.swift in Sources */,
+				3F355B4C2711D79600468310 /* FeaturedCellViewModel.swift in Sources */,
+				3F6828002710E720004E53CB /* FeaturedItem.swift in Sources */,
+				3F6827ED2710C52C004E53CB /* Numbers.swift in Sources */,
+				3F6827F92710E038004E53CB /* FeaturedProvider.swift in Sources */,
+				3F4F77152710AFD10032A48B /* PokedexCell.swift in Sources */,
+				3F4F77302710AFD10032A48B /* ApiClient.swift in Sources */,
+				3F4F773C2710AFD10032A48B /* PokemonCatalogue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +724,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4F77342710AFD10032A48B /* NetworkLogger.swift in Sources */,
+				3F4F77192710AFD10032A48B /* UIView.swift in Sources */,
+				3F4F771C2710AFD10032A48B /* UIViewController+Router.swift in Sources */,
+				3F4F77402710AFD10032A48B /* PokemonCollections.swift in Sources */,
+				3F4F77162710AFD10032A48B /* PokedexCell.swift in Sources */,
+				3F4F77372710AFD10032A48B /* Endpoint.swift in Sources */,
+				3F6827E22710B9CA004E53CB /* FeaturedApiItem.swift in Sources */,
+				3F4F77252710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */,
+				3F4F77222710AFD10032A48B /* UIViewController+Preview.swift in Sources */,
+				3F4F77432710AFD10032A48B /* BindableType.swift in Sources */,
+				3F4F772E2710AFD10032A48B /* ApiError.swift in Sources */,
+				3F4F77492710AFD10032A48B /* AppGenericContextTask.swift in Sources */,
+				3F4F77462710AFD10032A48B /* NibIdetifiable.swift in Sources */,
+				3F6827EA2710C2C6004E53CB /* UIColor.swift in Sources */,
+				3F4F772B2710AFD10032A48B /* InitViewController.swift in Sources */,
+				3F4F771F2710AFD10032A48B /* Router.swift in Sources */,
+				3F4F77312710AFD10032A48B /* ApiClient.swift in Sources */,
+				3F6827F22710C8C7004E53CB /* ImageURLProtocol.swift in Sources */,
 				3F4F76E92710AFB20032A48B /* SteamAppUITestsLaunchTests.swift in Sources */,
+				3F4F77132710AFD10032A48B /* MainViewHeaderCell.swift in Sources */,
+				3F6827E62710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */,
+				3F4F773A2710AFD10032A48B /* PokemonBanner.swift in Sources */,
+				3F4F773D2710AFD10032A48B /* PokemonCatalogue.swift in Sources */,
+				3F6827EE2710C52C004E53CB /* Numbers.swift in Sources */,
 				3F4F76E72710AFB20032A48B /* SteamAppUITests.swift in Sources */,
+				3F4F77282710AFD10032A48B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +906,7 @@
 		};
 		3F4F76ED2710AFB20032A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA1C3950B77BC157BEF4C05B /* Pods-SteamApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,6 +918,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -466,6 +936,7 @@
 		};
 		3F4F76EE2710AFB20032A48B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 409B08269349FA8B65DA9661 /* Pods-SteamApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -477,6 +948,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,6 +966,7 @@
 		};
 		3F4F76F02710AFB20032A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 655578B479DAAD670FC7EABD /* Pods-SteamAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +992,7 @@
 		};
 		3F4F76F12710AFB20032A48B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D733BF9AB30AE255869F7E79 /* Pods-SteamAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +1018,7 @@
 		};
 		3F4F76F32710AFB20032A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEF3D7F0EC711BE4D74A6D5E /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -567,6 +1042,7 @@
 		};
 		3F4F76F42710AFB20032A48B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD04058274A97CEEA16F0059 /* Pods-SteamApp-SteamAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

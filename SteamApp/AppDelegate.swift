@@ -7,14 +7,18 @@
 
 import UIKit
 import CoreData
+import RouteComposer
+import os.log
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch.       
+        RouteComposerDefaults.configureWith(logger: DefaultLogger(.verbose, osLog: OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Router")))
+        
         return true
     }
 
