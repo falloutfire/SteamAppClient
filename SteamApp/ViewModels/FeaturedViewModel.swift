@@ -8,31 +8,30 @@
 import UIKit
 import RouteComposer
 import SwiftUI
+import Combine
 
 protocol FeaturedViewModelProtocol {
-    var loading: Bindable<Bool> { get }
-    var errorValue: Bindable<Error?> { get }
-    
-    var items: Bindable<[FeaturedHashableSection]?> { get }
+    var errorPublisher: Published<Error?>.Publisher { get }
+    var loadPublisher: Published<Bool>.Publisher { get }
+    var featuredItemsPublisher: Published<[FeaturedHashableSection]?>.Publisher { get }
     
     func getFeaturedItems()
 }
 
 class FeaturedViewModel: NSObject, FeaturedViewModelProtocol {
     
-    private(set) var loading: Bindable<Bool> = Bindable(false)
-    private(set) var errorValue: Bindable<Error?> = Bindable(nil)
+    @Published private var errorValue: Error? = nil
+    @Published private var loading: Bool = true
+    @Published private var featuredItems: [FeaturedHashableSection]? = nil
     
-    private(set) var items: Bindable<[FeaturedHashableSection]?> = Bindable(nil)
-    
-    private var featuredItems: [FeaturedHashableSection]? = nil {
-        didSet {
-            self.items.value = self.featuredItems
-        }
-    }
+    var errorPublisher: Published<Error?>.Publisher { $errorValue }
+    var loadPublisher: Published<Bool>.Publisher { $loading }
+    var featuredItemsPublisher: Published<[FeaturedHashableSection]?>.Publisher { $featuredItems }
     
     private var router: Router!
     private var featuredRepository: FeaturedUseCaseProtocol!
+    
+    private var subscribitions = Set<AnyCancellable>()
     
     init(router: Router, featuredRepository: FeaturedUseCaseProtocol) {
         super.init()
@@ -41,50 +40,28 @@ class FeaturedViewModel: NSObject, FeaturedViewModelProtocol {
     }
     
     func getFeaturedItems() {
-        featuredRepository.getFeaturedItems(completion: { [weak self] result in
+        let currentThread = Thread.current.number
+        print("\n current thread \(currentThread)\n")
+        featuredRepository.getFeaturedItems()
+            .subscribe(on: DispatchQueue.global(qos: .utility))
+            .receive(on: DispatchQueue.main)
+            .map { result -> Result<FeaturedCollection, Error> in
+                print("Beginning expensive computation on thread \(Thread.current.number)")
+                return result
+            }.sink { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                //                self.items.value = [.largeCapsulesItems(data.largeCapsules),
-                //                                    .featuredWinItems(data.featuredWin),
-                //                                    .featuredMACItems(data.featuredMAC),
-                //                                    .featuredLinuxItems(data.featuredLinux)]
-                
                 self.featuredItems = [FeaturedHashableSection(type: .largeCapsulesItems, items: data.largeCapsules),
                                       FeaturedHashableSection(type: .featuredWinItems, items: data.featuredWin),
                                       FeaturedHashableSection(type: .featuredMACItems, items: data.featuredMAC),
                                       FeaturedHashableSection(type: .featuredLinuxItems, items: data.featuredLinux)]
-                
-                //self.getImages()
-                
             case .failure(let error):
-                self.errorValue.value = error
+                self.errorValue = error
                 print(error)
             }
-        })
+        }.store(in: &subscribitions)
     }
-    
-    private func getImages() {
-        if let values = items.value {
-            for featuredItemsId in 0..<values.count {
-                if let items = values[featuredItemsId].items {
-                    for id in 0..<items.count {
-                        featuredRepository.getFeaturedImageItem(item: items[id], completion: { [weak self] result in
-                            guard let self = self else { return }
-                            switch result {
-                            case .success(let data):
-                                self.items.value?[featuredItemsId].items?[id].image = data
-                            case .failure(let error):
-                                self.errorValue.value = error
-                                print(error)
-                            }
-                        })
-                    }
-                }
-            }
-        }
-    }
-    
 }
 
 class FeaturedHashableSection: Hashable {
@@ -113,3 +90,20 @@ enum FeaturedSection: Int, CaseIterable {
     case featuredMACItems
     case featuredLinuxItems
 }
+
+extension Thread {
+  public var number: Int {
+    let desc = self.description
+    if let numberMatches = Regexes.threadNumber.firstMatch(in: desc, range: NSMakeRange(0, desc.count)) {
+      let s = NSString(string: desc).substring(with: numberMatches.range(at: 1))
+      return Int(s) ?? 0
+    }
+    return 0
+  }
+}
+
+fileprivate enum Regexes {
+  static let threadNumber = try! NSRegularExpression(pattern: "number = (\\d+)", options: .caseInsensitive)
+}
+
+

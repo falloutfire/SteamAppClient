@@ -8,15 +8,16 @@
 import Foundation
 import UIKit
 
-// MARK: - FeaturedApiCollection
+// MARK: - FeaturedCollection
 struct FeaturedCollection {
     let largeCapsules, featuredWin, featuredMAC, featuredLinux: [FeaturedItem]
     let layout: String
     let status: Int
 }
 
-// MARK: - FeaturedApiItem
+// MARK: - FeaturedItem
 struct FeaturedItem: Hashable {
+    let uuid = UUID()
     let id, type: Int
     let name: String
     let discounted: Bool
@@ -33,11 +34,11 @@ struct FeaturedItem: Hashable {
     
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(uuid)
     }
     
     static func == (lhs: FeaturedItem, rhs: FeaturedItem) -> Bool {
-        return lhs.id == rhs.id && lhs.image == rhs.image
+        return lhs.uuid == rhs.uuid && lhs.image == rhs.image
     }
     
     

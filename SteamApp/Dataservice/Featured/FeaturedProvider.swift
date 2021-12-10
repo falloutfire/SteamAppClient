@@ -10,12 +10,13 @@ import UIKit
 enum FeaturedProvider {
     case getFeaturedItem
     case getImageForFeaturedItem(url: URL)
+    case getItemsByCategory(category: String)
 }
 
 extension FeaturedProvider: Endpoint {
     var base: URL {
         switch self {
-        case .getFeaturedItem: return URL(string: "https://store.steampowered.com")!
+        case .getFeaturedItem, .getItemsByCategory: return URL(string: "https://store.steampowered.com")!
         case .getImageForFeaturedItem(let url): return url
         }
     }
@@ -24,6 +25,7 @@ extension FeaturedProvider: Endpoint {
         switch self {
         case .getFeaturedItem: return "api/featured"
         case .getImageForFeaturedItem: return nil
+        case .getItemsByCategory(let category): return "api/getappsincategory/?category=\(category)"
         }
     }
     
@@ -37,7 +39,7 @@ extension FeaturedProvider: Endpoint {
     
     var contentType: ContentType {
         switch self {
-        case .getFeaturedItem: return .json
+        case .getFeaturedItem, .getItemsByCategory: return .json
         case .getImageForFeaturedItem: return .image
         }
     }

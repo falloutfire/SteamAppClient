@@ -6,32 +6,39 @@
 //
 
 import UIKit
+import Alamofire
+import Combine
 
 class FeaturedClient: APIClient {
-    
-    var session: URLSession
-    
-    var imageSession: URLSession
+    var session: Session
     
     // MARK: - Initializers
     
-    init(configuration: URLSessionConfiguration) {
-        self.session = URLSession(configuration: configuration)
-        self.imageSession = ImageURLProtocol.urlSession()
+    init(session: Session) {
+        self.session = session
     }
     
     convenience init() {
-        let configuration: URLSessionConfiguration = .default
+        let configuration = URLSessionConfiguration.af.default
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         configuration.urlCache = nil
-
-        self.init(configuration: configuration)
+        
+        let retryPolicy = RetryPolicy()
+        let eventMonitor = NetworkLogger()
+        let session = Session(configuration: configuration, interceptor: retryPolicy, eventMonitors: [eventMonitor])
+        
+        self.init(session: session)
+    }
+    
+    func getFeaturedItems() -> AnyPublisher<Result<FeaturedApiCollection, APIError>, Never> {
+        let request = FeaturedProvider.getFeaturedItem.request
+        return fetch(with: request).eraseToAnyPublisher()
     }
     
     func getFeaturedItems(completion: @escaping (Result<FeaturedApiCollection, APIError>) -> Void) {
         let request = FeaturedProvider.getFeaturedItem.request
         
-        fetch(with: request, decode: { json -> FeaturedApiCollection? in
+        fetchNoNetwork(with: request, decode: { json -> FeaturedApiCollection? in
             guard let balance = json as? FeaturedApiCollection else { return  nil }
             return balance
         }, completion: completion)
@@ -40,7 +47,12 @@ class FeaturedClient: APIClient {
     func getFeaturedImageItem(url: URL, completion: @escaping (Result<UIImage?, APIError>) -> Void) {
         let request = FeaturedProvider.getImageForFeaturedItem(url: url).request
         
-        fetchImage(with: request, completion: completion)
+        //fetchImage(with: request, completion: completion)
+    }
+    
+    func getItemsByCategory() -> AnyPublisher<Result<CategoryApiCollection, APIError>, Never> {
+        let request = FeaturedProvider.getItemsByCategory(category: "cat_topsellers").request
+        return fetch(with: request).eraseToAnyPublisher()
     }
     
 }

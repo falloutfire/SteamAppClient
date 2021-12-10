@@ -7,134 +7,79 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import Combine
+
+let dispatchQueue = DispatchQueue(label: "com.utility.steamApp", qos: .utility, attributes: .concurrent)
 
 protocol APIClient {
     
-    var session: URLSession { get }
+    var session: Session { get }
     
-    var imageSession: URLSession { get }
+    func fetch<T: Decodable>(with request: URLRequest) -> AnyPublisher<Result<T, APIError>, Never>
     
-    func fetch<T: Decodable>(with request: URLRequest,
-                             decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void)
-    
-    func fetch(with request: URLRequest, completion: @escaping (Result<AnyObject?, APIError>) -> Void)
-    
-    func fetchImage(with request: URLRequest, completion: @escaping (Result<UIImage?, APIError>) -> Void)
-    
+    func fetch(with request: URLRequest) -> AnyPublisher<Result<AnyObject?, APIError>, Never>
+
 }
 
 extension APIClient {
     
     typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
     
-    private func decodingTask<T: Decodable>(with request: URLRequest,
-                                            decodingType: T.Type,
-                                            completionHandler completion: JSONTaskCompletionHandler?) -> URLSessionDataTask {
-        let task = session.dataTask(with: request) { data, response, error in
-            
-            NetworkLogger.log(response: response as? HTTPURLResponse, data: data, error: error)
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion?(nil, .requestFailed)
-                return
-            }
-            if httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
-                if let data = data {
-                    do {
-                        let decoder = JSONDecoder()
-                        let genericModel = try decoder.decode(decodingType, from: data)
-                        completion?(genericModel, nil)
-                    } catch {
-                        completion?(nil, .requestFailed)
-                    }
-                } else {
-                    completion?(nil, .invalidData)
-                }
-            } else if let responseMetadata = response as? HTTPURLResponse, responseMetadata.statusCode != 200 && responseMetadata.statusCode != 201, let data = data {
-                if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    let errorValue = NSError(domain:"", code: responseMetadata.statusCode, userInfo:[NSLocalizedDescriptionKey: json["message"]!])
-                    completion?(nil, APIError(response: httpResponse, error: errorValue))
-                } else {
-                    completion?(nil, APIError(response: httpResponse, error: error))
-                }
-            }
-        }
-        return task
-    }
-    
-    func fetch(with request: URLRequest, completion: @escaping (Result<AnyObject?, APIError>) -> Void) {
-        let task = session.dataTask(with: request) { data, response, error in
-            NetworkLogger.log(request: request)
-            DispatchQueue.main.async {
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    completion(Result.failure(.requestFailed))
-                    return
-                }
-                NetworkLogger.log(response: response as? HTTPURLResponse, data: data, error: error)
-                if httpResponse.statusCode == 200 || httpResponse.statusCode == 201 {
-                    completion(Result.success(nil))
-                } else if let responseMetadata = response as? HTTPURLResponse, responseMetadata.statusCode != 200 && responseMetadata.statusCode != 201, let data = data {
-                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        let errorValue = NSError(domain:"", code: responseMetadata.statusCode, userInfo:[NSLocalizedDescriptionKey: json["message"]!])
-                        
-                        completion(Result.failure(APIError(response: httpResponse, error: errorValue)))
-                    } else {
-                        completion(Result.failure(APIError(response: httpResponse, error: error)))
-                    }
-                }
-            }
-        }
-        task.resume()
-    }
-    
-    func fetch<T: Decodable>(with request: URLRequest,
+    func fetchNoNetwork<T: Decodable>(with request: URLRequest,
                              decode: @escaping (Decodable) -> T?,
                              completion: @escaping (Result<T, APIError>) -> Void) {
-        NetworkLogger.log(request: request)
-        let task = decodingTask(with: request, decodingType: T.self) { (json, error) in
-            DispatchQueue.main.async {
-                guard let json = json else {
-                    if let error = error {
-                        completion(Result.failure(error))
-                    } else {
-                        completion(Result.failure(.requestFailed))
-                    }
-                    return
-                }
-                if let value = decode(json) {
-                    completion(.success(value))
-                } else {
-                    completion(.failure(.requestFailed))
-                }
-            }
+        do {
+            let decoder = JSONDecoder()
+            let data = Data(json.utf8)
+            let genericModel = try decoder.decode(T.self, from: data)
+            completion(Result.success(genericModel))
+        } catch {
+            completion(Result.failure(.requestFailed))
         }
-        task.resume()
     }
     
-    func fetchImage(with request: URLRequest, completion: @escaping (Result<UIImage?, APIError>) -> Void) {
-        if let url = request.url {
-            let task = session.dataTask(with: url) { (data, response, error) in
-                NetworkLogger.log(request: request)
-                // Check for the error, then data and try to create the image.
-    //            guard let httpResponse = response as? HTTPURLResponse else {
-    //                completion(Result.failure(.requestFailed))
-    //                return
-    //            }
-                NetworkLogger.log(response: response as? HTTPURLResponse, data: data, error: error)
-                if let responseData = data, let image = UIImage(data: responseData) {
-                    completion(.success(image))
-                } else if let responseMetadata = response as? HTTPURLResponse, responseMetadata.statusCode != 200 && responseMetadata.statusCode != 201, let data = data {
-                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        let errorValue = NSError(domain:"", code: responseMetadata.statusCode, userInfo:[NSLocalizedDescriptionKey: json["message"]!])
-                        
-                        completion(Result.failure(APIError(response: response, error: errorValue)))
-                    } else {
-                        completion(Result.failure(APIError(response: response, error: error)))
+    func fetch<T: Decodable>(with request: URLRequest) -> AnyPublisher<Result<T, APIError>, Never> {
+        let decoder = JSONDecoder()
+        //decoder.dateDecodingStrategy = .formatted(Dataservice.dateFormatter)
+        return session.request(request)
+            .validate()
+            .publishData(queue: dispatchQueue, emptyResponseCodes: [200, 201, 203, 204])
+            .map { response in
+                switch(response.result) {
+                case .success(let data):
+                    do {
+                        let decoder = JSONDecoder()
+                        //decoder.dateDecodingStrategy = .formatted(Dataservice.dateFormatter)
+                        let genericModel = try decoder.decode(T.self, from: data)
+                        return Result<T, APIError>.success(genericModel)
+                    } catch {
+                        return Result<T, APIError>.failure(APIError.requestFailed)
                     }
-                } else {
-                    completion(Result.failure(APIError(response: response, error: error)))
+                case .failure(let value):
+                    let apiError = APIError(response: response.response, data: response.data, error: value)
+                    return Result<T, APIError>.failure(apiError)
                 }
             }
-            task.resume()
-        }
+            .eraseToAnyPublisher()
+    }
+    
+    func fetch(with request: URLRequest) -> AnyPublisher<Result<AnyObject?, APIError>, Never> {
+        return session.request(request)
+            .validate()
+            .publishData(emptyResponseCodes: [200, 201, 203, 204])
+            .map { response in
+                switch(response.result) {
+                case .success(let data):
+                    return Result<AnyObject?, APIError>.success(data as AnyObject?)
+                case .failure(let error):
+                    let apiError = APIError(response: response.response, data: response.data, error: error)
+                    return Result<AnyObject?, APIError>.failure(apiError)
+                }
+            }.eraseToAnyPublisher()
     }
 }
+
+let json = """
+{"large_capsules":[],"featured_win":[{"id":1782210,"type":0,"name":"Crab Game","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1782210/capsule_616x353.jpg?t=1635555468","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1782210/capsule_184x69.jpg?t=1635555468","windows_available":true,"mac_available":false,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1782210/header.jpg?t=1635555468"},{"id":1113570,"type":0,"name":"Voice of Cards: The Isle Dragon Roars","discounted":false,"discount_percent":0,"original_price":149900,"final_price":149900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1113570/capsule_616x353.jpg?t=1635439245","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1113570/capsule_184x69.jpg?t=1635439245","windows_available":true,"mac_available":false,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1113570/header.jpg?t=1635439245"},{"id":1466860,"type":0,"name":"Age of Empires IV","discounted":false,"discount_percent":0,"original_price":249900,"final_price":249900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1466860/capsule_616x353.jpg?t=1635449761","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1466860/capsule_184x69.jpg?t=1635449761","windows_available":true,"mac_available":false,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1466860/header.jpg?t=1635449761"},{"id":1466860,"type":0,"name":"Age of Empires IV","discounted":false,"discount_percent":0,"original_price":249900,"final_price":249900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1466860/capsule_616x353.jpg?t=1635449761","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1466860/capsule_184x69.jpg?t=1635449761","windows_available":true,"mac_available":false,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1466860/header.jpg?t=1635449761"},{"id":1159560,"type":0,"name":"Ziggurat 2","discounted":true,"discount_percent":10,"original_price":46500,"final_price":41800,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/capsule_616x353.jpg?t=1635500351","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/capsule_184x69.jpg?t=1635500351","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"discount_expiration":1636045237,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/header.jpg?t=1635500351","controller_support":"full"},{"id":1206060,"type":0,"name":"Happy Game","discounted":true,"discount_percent":13,"original_price":41300,"final_price":35900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1206060/capsule_616x353.jpg?t=1635450978","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1206060/capsule_184x69.jpg?t=1635450978","windows_available":true,"mac_available":true,"linux_available":false,"streamingvideo_available":false,"discount_expiration":1636045249,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1206060/header.jpg?t=1635450978"},{"id":898750,"type":0,"name":"Super Robot Wars 30","discounted":false,"discount_percent":0,"original_price":249900,"final_price":249900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/898750/capsule_616x353.jpg?t=1635442827","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/898750/capsule_184x69.jpg?t=1635442827","windows_available":true,"mac_available":false,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/898750/header.jpg?t=1635442827","controller_support":"full"},{"id":1088850,"type":0,"name":"Marvel's Guardians of the Galaxy","discounted":false,"discount_percent":0,"original_price":249900,"final_price":249900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1088850/capsule_616x353.jpg?t=1635523341","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1088850/capsule_184x69.jpg?t=1635523341","windows_available":true,"mac_available":false,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1088850/header.jpg?t=1635523341","controller_support":"full"},{"id":1684170,"type":0,"name":"Fetish Locator Week Two","discounted":true,"discount_percent":5,"original_price":56900,"final_price":54000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/capsule_616x353.jpg?t=1635178208","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/capsule_184x69.jpg?t=1635178208","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"discount_expiration":1635786000,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/header.jpg?t=1635178208"},{"id":1557040,"type":0,"name":"Terraformers: First Steps on Mars","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/capsule_616x353.jpg?t=1635234492","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/capsule_184x69.jpg?t=1635234492","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/header.jpg?t=1635234492"}],"featured_mac":[{"id":1159560,"type":0,"name":"Ziggurat 2","discounted":true,"discount_percent":10,"original_price":46500,"final_price":41800,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/capsule_616x353.jpg?t=1635500351","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/capsule_184x69.jpg?t=1635500351","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"discount_expiration":1636045237,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/header.jpg?t=1635500351","controller_support":"full"},{"id":1206060,"type":0,"name":"Happy Game","discounted":true,"discount_percent":13,"original_price":41300,"final_price":35900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1206060/capsule_616x353.jpg?t=1635450978","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1206060/capsule_184x69.jpg?t=1635450978","windows_available":true,"mac_available":true,"linux_available":false,"streamingvideo_available":false,"discount_expiration":1636045249,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1206060/header.jpg?t=1635450978"},{"id":1684170,"type":0,"name":"Fetish Locator Week Two","discounted":true,"discount_percent":5,"original_price":56900,"final_price":54000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/capsule_616x353.jpg?t=1635178208","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/capsule_184x69.jpg?t=1635178208","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"discount_expiration":1635786000,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/header.jpg?t=1635178208"},{"id":1557040,"type":0,"name":"Terraformers: First Steps on Mars","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/capsule_616x353.jpg?t=1635234492","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/capsule_184x69.jpg?t=1635234492","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/header.jpg?t=1635234492"},{"id":1435790,"type":0,"name":"Escape Simulator","discounted":false,"discount_percent":0,"original_price":36000,"final_price":36000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1435790/capsule_616x353.jpg?t=1635273038","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1435790/capsule_184x69.jpg?t=1635273038","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1435790/header.jpg?t=1635273038"},{"id":1724190,"type":0,"name":"Come Home","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1724190/capsule_616x353.jpg?t=1634298856","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1724190/capsule_184x69.jpg?t=1634298856","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1724190/header.jpg?t=1634298856"},{"id":1552350,"type":0,"name":"The Jackbox Party Pack 8","discounted":false,"discount_percent":0,"original_price":51500,"final_price":51500,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1552350/capsule_616x353.jpg?t=1634176788","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1552350/capsule_184x69.jpg?t=1634176788","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1552350/header.jpg?t=1634176788"},{"id":1568590,"type":0,"name":"Goose Goose Duck","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1568590/capsule_616x353.jpg?t=1633400156","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1568590/capsule_184x69.jpg?t=1633400156","windows_available":true,"mac_available":true,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1568590/header.jpg?t=1633400156"},{"id":1766730,"type":0,"name":"CS:GO - Operation Riptide","discounted":false,"discount_percent":0,"original_price":108000,"final_price":108000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1766730/capsule_616x353.jpg?t=1633028982","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1766730/capsule_184x69.jpg?t=1633028982","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1766730/header.jpg?t=1633028982","controller_support":"full"},{"id":1714320,"type":0,"name":"Find Love or Die Trying","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1714320/capsule_616x353.jpg?t=1632273833","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1714320/capsule_184x69.jpg?t=1632273833","windows_available":true,"mac_available":true,"linux_available":false,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1714320/header.jpg?t=1632273833"}],"featured_linux":[{"id":1159560,"type":0,"name":"Ziggurat 2","discounted":true,"discount_percent":10,"original_price":46500,"final_price":41800,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/capsule_616x353.jpg?t=1635500351","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/capsule_184x69.jpg?t=1635500351","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"discount_expiration":1636045237,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1159560/header.jpg?t=1635500351","controller_support":"full"},{"id":1684170,"type":0,"name":"Fetish Locator Week Two","discounted":true,"discount_percent":5,"original_price":56900,"final_price":54000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/capsule_616x353.jpg?t=1635178208","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/capsule_184x69.jpg?t=1635178208","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"discount_expiration":1635786000,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1684170/header.jpg?t=1635178208"},{"id":1557040,"type":0,"name":"Terraformers: First Steps on Mars","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/capsule_616x353.jpg?t=1635234492","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/capsule_184x69.jpg?t=1635234492","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1557040/header.jpg?t=1635234492"},{"id":1639990,"type":0,"name":"Dreams of Desire: Definitive Edition","discounted":false,"discount_percent":0,"original_price":30900,"final_price":30900,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1639990/capsule_616x353.jpg?t=1634750021","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1639990/capsule_184x69.jpg?t=1634750021","windows_available":true,"mac_available":false,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1639990/header.jpg?t=1634750021"},{"id":1435790,"type":0,"name":"Escape Simulator","discounted":false,"discount_percent":0,"original_price":36000,"final_price":36000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1435790/capsule_616x353.jpg?t=1635273038","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1435790/capsule_184x69.jpg?t=1635273038","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1435790/header.jpg?t=1635273038"},{"id":1724190,"type":0,"name":"Come Home","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1724190/capsule_616x353.jpg?t=1634298856","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1724190/capsule_184x69.jpg?t=1634298856","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1724190/header.jpg?t=1634298856"},{"id":1552350,"type":0,"name":"The Jackbox Party Pack 8","discounted":false,"discount_percent":0,"original_price":51500,"final_price":51500,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1552350/capsule_616x353.jpg?t=1634176788","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1552350/capsule_184x69.jpg?t=1634176788","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1552350/header.jpg?t=1634176788"},{"id":1714040,"type":0,"name":"Super Auto Pets","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1714040/capsule_616x353.jpg?t=1633434503","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1714040/capsule_184x69.jpg?t=1633434503","windows_available":true,"mac_available":false,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1714040/header.jpg?t=1633434503"},{"id":1743260,"type":0,"name":"Welcome to Free Will - Episode 1","discounted":false,"discount_percent":0,"original_price":null,"final_price":0,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1743260/capsule_616x353.jpg?t=1632328050","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1743260/capsule_184x69.jpg?t=1632328050","windows_available":true,"mac_available":false,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1743260/header.jpg?t=1632328050"},{"id":1766730,"type":0,"name":"CS:GO - Operation Riptide","discounted":false,"discount_percent":0,"original_price":108000,"final_price":108000,"currency":"RUB","large_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1766730/capsule_616x353.jpg?t=1633028982","small_capsule_image":"https://cdn.akamai.steamstatic.com/steam/apps/1766730/capsule_184x69.jpg?t=1633028982","windows_available":true,"mac_available":true,"linux_available":true,"streamingvideo_available":false,"header_image":"https://cdn.akamai.steamstatic.com/steam/apps/1766730/header.jpg?t=1633028982","controller_support":"full"}],"layout":"defcon1","status":1}
+"""

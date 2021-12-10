@@ -6,10 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class FeaturedItemCell: UICollectionViewCell, BindableType {
-    
-    typealias ViewModelType = FeaturedCellViewModelProtocol
+class FeaturedItemCell: UICollectionViewCell {
     
     static let reusableCellIdetifier = "FeaturedItemCell"
     
@@ -18,7 +17,7 @@ class FeaturedItemCell: UICollectionViewCell, BindableType {
         imageView.image = UIImage(systemName: "icloud.circle")
         imageView.backgroundColor = UIColor.init(red: 14, green: 24, blue: 34)
         imageView.tintColor = .white
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -65,8 +64,6 @@ class FeaturedItemCell: UICollectionViewCell, BindableType {
         return label
     }()
     
-    var viewModel: FeaturedCellViewModelProtocol!
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureView()
@@ -80,18 +77,17 @@ class FeaturedItemCell: UICollectionViewCell, BindableType {
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
         
-        addSubview(imageView)
-        
-        imageView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
         addSubview(mainView)
         
         mainView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 90)
+        
+        addSubview(imageView)
+        
+        imageView.anchor(top: topAnchor, left: leftAnchor, bottom: mainView.topAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
     
-    private func configureView(with item: FeaturedItem) {
+    func configureView(with item: FeaturedItem) {
         mainLabel.text = item.name
-        imageView.image = item.image
         
         if item.discounted {
             mainView.addSubview(discountValueLabel)
@@ -118,19 +114,6 @@ class FeaturedItemCell: UICollectionViewCell, BindableType {
             
             originalPriceLabel.font = UIFont.systemFont(ofSize: 30)
         }
-    }
-    
-    func bindViewModel() {
-        viewModel.featuredItem.bindAndFire({ [weak self] item in
-            if let item = item {
-                self?.configureView(with: item)
-                self?.viewModel.getImageForFeaturedItem()
-            }
-        })
-        
-        viewModel.imageCell.bind({ [weak self] item in
-            self?.imageView.image = item
-        })
     }
     
 }

@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F355B4B2711D79600468310 /* FeaturedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */; };
-		3F355B4C2711D79600468310 /* FeaturedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */; };
+		364AE1A9EB44F7F78A96ED3F /* Pods_SteamAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994934F24D8960C13059F160 /* Pods_SteamAppTests.framework */; };
 		3F4F76C32710AFB00032A48B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76C22710AFB00032A48B /* AppDelegate.swift */; };
 		3F4F76C52710AFB00032A48B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76C42710AFB00032A48B /* SceneDelegate.swift */; };
-		3F4F76C72710AFB00032A48B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76C62710AFB00032A48B /* ViewController.swift */; };
-		3F4F76CA2710AFB00032A48B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4F76C82710AFB00032A48B /* Main.storyboard */; };
 		3F4F76CD2710AFB00032A48B /* SteamApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F76CB2710AFB00032A48B /* SteamApp.xcdatamodeld */; };
 		3F4F76CF2710AFB20032A48B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4F76CE2710AFB20032A48B /* Assets.xcassets */; };
 		3F4F76D22710AFB20032A48B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F4F76D02710AFB20032A48B /* LaunchScreen.storyboard */; };
@@ -58,15 +55,6 @@
 		3F4F77352710AFD10032A48B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77082710AFD00032A48B /* Endpoint.swift */; };
 		3F4F77362710AFD10032A48B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77082710AFD00032A48B /* Endpoint.swift */; };
 		3F4F77372710AFD10032A48B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F77082710AFD00032A48B /* Endpoint.swift */; };
-		3F4F77382710AFD10032A48B /* PokemonBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770A2710AFD10032A48B /* PokemonBanner.swift */; };
-		3F4F77392710AFD10032A48B /* PokemonBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770A2710AFD10032A48B /* PokemonBanner.swift */; };
-		3F4F773A2710AFD10032A48B /* PokemonBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770A2710AFD10032A48B /* PokemonBanner.swift */; };
-		3F4F773B2710AFD10032A48B /* PokemonCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */; };
-		3F4F773C2710AFD10032A48B /* PokemonCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */; };
-		3F4F773D2710AFD10032A48B /* PokemonCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */; };
-		3F4F773E2710AFD10032A48B /* PokemonCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770C2710AFD10032A48B /* PokemonCollections.swift */; };
-		3F4F773F2710AFD10032A48B /* PokemonCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770C2710AFD10032A48B /* PokemonCollections.swift */; };
-		3F4F77402710AFD10032A48B /* PokemonCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770C2710AFD10032A48B /* PokemonCollections.swift */; };
 		3F4F77412710AFD10032A48B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770E2710AFD10032A48B /* BindableType.swift */; };
 		3F4F77422710AFD10032A48B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770E2710AFD10032A48B /* BindableType.swift */; };
 		3F4F77432710AFD10032A48B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4F770E2710AFD10032A48B /* BindableType.swift */; };
@@ -102,9 +90,28 @@
 		3F6828002710E720004E53CB /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FE2710E720004E53CB /* FeaturedItem.swift */; };
 		3F6828022710F154004E53CB /* FeaturedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6828012710F154004E53CB /* FeaturedViewModel.swift */; };
 		3F6828032710F154004E53CB /* FeaturedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6828012710F154004E53CB /* FeaturedViewModel.swift */; };
-		7E362189F053D3E11FA5AA4B /* Pods_SteamAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F7E8B4300E349E0C24390B /* Pods_SteamAppTests.framework */; };
-		9B834F89CB5FA6FB037FF68A /* Pods_SteamApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F975325AC61EAB7721C3303 /* Pods_SteamApp.framework */; };
-		F4B9507C11BC6F8BAA481AD8 /* Pods_SteamApp_SteamAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ED0CE760C200132111BB81 /* Pods_SteamApp_SteamAppUITests.framework */; };
+		3F913B5827303EA900CEBCD3 /* CategoryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F913B5727303EA900CEBCD3 /* CategoryItems.swift */; };
+		3F913B5927303EA900CEBCD3 /* CategoryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F913B5727303EA900CEBCD3 /* CategoryItems.swift */; };
+		3F913B5A27303EA900CEBCD3 /* CategoryItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F913B5727303EA900CEBCD3 /* CategoryItems.swift */; };
+		3F913B5C27316C1800CEBCD3 /* AppApiData.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F913B5B27316C1800CEBCD3 /* AppApiData.swift.swift */; };
+		3F913B5D27316C1800CEBCD3 /* AppApiData.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F913B5B27316C1800CEBCD3 /* AppApiData.swift.swift */; };
+		3F913B5E27316C1800CEBCD3 /* AppApiData.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F913B5B27316C1800CEBCD3 /* AppApiData.swift.swift */; };
+		3F9AD49B272469DB001B979E /* JetBrainsMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9AD495272469DB001B979E /* JetBrainsMono-LightItalic.ttf */; };
+		3F9AD49C272469DB001B979E /* JetBrainsMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9AD496272469DB001B979E /* JetBrainsMono-Light.ttf */; };
+		3F9AD49D272469DB001B979E /* JetBrainsMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9AD497272469DB001B979E /* JetBrainsMono-BoldItalic.ttf */; };
+		3F9AD49E272469DB001B979E /* JetBrainsMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9AD498272469DB001B979E /* JetBrainsMono-Medium.ttf */; };
+		3F9AD49F272469DB001B979E /* JetBrainsMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9AD499272469DB001B979E /* JetBrainsMono-Bold.ttf */; };
+		3F9AD4A0272469DB001B979E /* JetBrainsMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F9AD49A272469DB001B979E /* JetBrainsMono-MediumItalic.ttf */; };
+		3FA4D3FD272EA6290045F321 /* CategoryApiCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA4D3FC272EA6280045F321 /* CategoryApiCollection.swift */; };
+		3FE6760F2722AC060021E10A /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6760E2722AC060021E10A /* MaterialTextField.swift */; };
+		3FE676132722AE480021E10A /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FE676112722AD390021E10A /* Montserrat-Light.ttf */; };
+		3FED77CA272DA5770086E3C8 /* FeaturedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827F32710E00B004E53CB /* FeaturedRepository.swift */; };
+		3FED77CB272DA5900086E3C8 /* FeaturedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FE2710E720004E53CB /* FeaturedItem.swift */; };
+		3FED77CC272DA5970086E3C8 /* FeaturedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827DD2710B244004E53CB /* FeaturedItemCell.swift */; };
+		3FED77CD272DA5980086E3C8 /* FeaturedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827DD2710B244004E53CB /* FeaturedItemCell.swift */; };
+		3FED77CE272EA3180086E3C8 /* FeaturedClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6827FA2710E318004E53CB /* FeaturedClient.swift */; };
+		AFBFFB1EA35A5C51C497C97F /* Pods_SteamApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8AC13A353FF59A11B0FB26A /* Pods_SteamApp.framework */; };
+		D2B470D2098B1DB151243143 /* Pods_SteamApp_SteamAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2567A5E44A3D511C6E188EE9 /* Pods_SteamApp_SteamAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,13 +132,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22ED0CE760C200132111BB81 /* Pods_SteamApp_SteamAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamApp_SteamAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCellViewModel.swift; sourceTree = "<group>"; };
+		08DF56AE3AF527676BFEF7C0 /* Pods-SteamApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp.debug.xcconfig"; path = "Target Support Files/Pods-SteamApp/Pods-SteamApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0FE1A53617E4C7D76FC4CAAE /* Pods-SteamApp-SteamAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp-SteamAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2567A5E44A3D511C6E188EE9 /* Pods_SteamApp_SteamAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamApp_SteamAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A6E53269B14ADA34DE551F /* Pods-SteamApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp.release.xcconfig"; path = "Target Support Files/Pods-SteamApp/Pods-SteamApp.release.xcconfig"; sourceTree = "<group>"; };
+		382EB77C7BFC9783E28408E0 /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp-SteamAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3F0DB30F4D59DF17C8778542 /* Pods-SteamAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SteamAppTests/Pods-SteamAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3F4F76BF2710AFB00032A48B /* SteamApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4F76C22710AFB00032A48B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F4F76C42710AFB00032A48B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3F4F76C62710AFB00032A48B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3F4F76C92710AFB00032A48B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F4F76CC2710AFB00032A48B /* SteamApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SteamApp.xcdatamodel; sourceTree = "<group>"; };
 		3F4F76CE2710AFB20032A48B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F4F76D12710AFB20032A48B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -154,9 +163,6 @@
 		3F4F77062710AFD00032A48B /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		3F4F77072710AFD00032A48B /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		3F4F77082710AFD00032A48B /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		3F4F770A2710AFD10032A48B /* PokemonBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonBanner.swift; sourceTree = "<group>"; };
-		3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCatalogue.swift; sourceTree = "<group>"; };
-		3F4F770C2710AFD10032A48B /* PokemonCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonCollections.swift; sourceTree = "<group>"; };
 		3F4F770E2710AFD10032A48B /* BindableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		3F4F770F2710AFD10032A48B /* NibIdetifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdetifiable.swift; sourceTree = "<group>"; };
 		3F4F77102710AFD10032A48B /* AppGenericContextTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGenericContextTask.swift; sourceTree = "<group>"; };
@@ -171,14 +177,20 @@
 		3F6827FA2710E318004E53CB /* FeaturedClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedClient.swift; sourceTree = "<group>"; };
 		3F6827FE2710E720004E53CB /* FeaturedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedItem.swift; sourceTree = "<group>"; };
 		3F6828012710F154004E53CB /* FeaturedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewModel.swift; sourceTree = "<group>"; };
-		409B08269349FA8B65DA9661 /* Pods-SteamApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp.release.xcconfig"; path = "Target Support Files/Pods-SteamApp/Pods-SteamApp.release.xcconfig"; sourceTree = "<group>"; };
-		655578B479DAAD670FC7EABD /* Pods-SteamAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamAppTests.debug.xcconfig"; path = "Target Support Files/Pods-SteamAppTests/Pods-SteamAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7F975325AC61EAB7721C3303 /* Pods_SteamApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1F7E8B4300E349E0C24390B /* Pods_SteamAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D733BF9AB30AE255869F7E79 /* Pods-SteamAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamAppTests.release.xcconfig"; path = "Target Support Files/Pods-SteamAppTests/Pods-SteamAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		EA1C3950B77BC157BEF4C05B /* Pods-SteamApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp.debug.xcconfig"; path = "Target Support Files/Pods-SteamApp/Pods-SteamApp.debug.xcconfig"; sourceTree = "<group>"; };
-		EEF3D7F0EC711BE4D74A6D5E /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp-SteamAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		FD04058274A97CEEA16F0059 /* Pods-SteamApp-SteamAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamApp-SteamAppUITests.release.xcconfig"; path = "Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3F913B5727303EA900CEBCD3 /* CategoryItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItems.swift; sourceTree = "<group>"; };
+		3F913B5B27316C1800CEBCD3 /* AppApiData.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppApiData.swift.swift; sourceTree = "<group>"; };
+		3F9AD495272469DB001B979E /* JetBrainsMono-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-LightItalic.ttf"; sourceTree = "<group>"; };
+		3F9AD496272469DB001B979E /* JetBrainsMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Light.ttf"; sourceTree = "<group>"; };
+		3F9AD497272469DB001B979E /* JetBrainsMono-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-BoldItalic.ttf"; sourceTree = "<group>"; };
+		3F9AD498272469DB001B979E /* JetBrainsMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Medium.ttf"; sourceTree = "<group>"; };
+		3F9AD499272469DB001B979E /* JetBrainsMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-Bold.ttf"; sourceTree = "<group>"; };
+		3F9AD49A272469DB001B979E /* JetBrainsMono-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JetBrainsMono-MediumItalic.ttf"; sourceTree = "<group>"; };
+		3FA4D3FC272EA6280045F321 /* CategoryApiCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApiCollection.swift; sourceTree = "<group>"; };
+		3FE6760E2722AC060021E10A /* MaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
+		3FE676112722AD390021E10A /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		4A6DCB151819ADA0D436C9B6 /* Pods-SteamAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SteamAppTests.release.xcconfig"; path = "Target Support Files/Pods-SteamAppTests/Pods-SteamAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		994934F24D8960C13059F160 /* Pods_SteamAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8AC13A353FF59A11B0FB26A /* Pods_SteamApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SteamApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B834F89CB5FA6FB037FF68A /* Pods_SteamApp.framework in Frameworks */,
+				AFBFFB1EA35A5C51C497C97F /* Pods_SteamApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E362189F053D3E11FA5AA4B /* Pods_SteamAppTests.framework in Frameworks */,
+				364AE1A9EB44F7F78A96ED3F /* Pods_SteamAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,23 +214,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4B9507C11BC6F8BAA481AD8 /* Pods_SteamApp_SteamAppUITests.framework in Frameworks */,
+				D2B470D2098B1DB151243143 /* Pods_SteamApp_SteamAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17F9DDF8C54A9762471FD83E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7F975325AC61EAB7721C3303 /* Pods_SteamApp.framework */,
-				22ED0CE760C200132111BB81 /* Pods_SteamApp_SteamAppUITests.framework */,
-				A1F7E8B4300E349E0C24390B /* Pods_SteamAppTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		3F4F76B62710AFB00032A48B = {
 			isa = PBXGroup;
 			children = (
@@ -227,7 +229,7 @@
 				3F4F76E52710AFB20032A48B /* SteamAppUITests */,
 				3F4F76C02710AFB00032A48B /* Products */,
 				E8DB89345F95098A0783FCF2 /* Pods */,
-				17F9DDF8C54A9762471FD83E /* Frameworks */,
+				7F2BB611450E87E1AB8324DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +246,7 @@
 		3F4F76C12710AFB00032A48B /* SteamApp */ = {
 			isa = PBXGroup;
 			children = (
+				3FE676102722AD0A0021E10A /* Fonts */,
 				3F4F77002710AFD00032A48B /* Controllers */,
 				3F4F77042710AFD00032A48B /* Dataservice */,
 				3F4F76F92710AFD00032A48B /* Extensions */,
@@ -254,8 +257,6 @@
 				3F4F76F82710AFD00032A48B /* ViewModels */,
 				3F4F76C22710AFB00032A48B /* AppDelegate.swift */,
 				3F4F76C42710AFB00032A48B /* SceneDelegate.swift */,
-				3F4F76C62710AFB00032A48B /* ViewController.swift */,
-				3F4F76C82710AFB00032A48B /* Main.storyboard */,
 				3F4F76CE2710AFB20032A48B /* Assets.xcassets */,
 				3F4F76D02710AFB20032A48B /* LaunchScreen.storyboard */,
 				3F4F76D32710AFB20032A48B /* Info.plist */,
@@ -287,6 +288,7 @@
 				3F4F76F62710AFD00032A48B /* MainViewHeaderCell.swift */,
 				3F4F76F72710AFD00032A48B /* PokedexCell.swift */,
 				3F6827DD2710B244004E53CB /* FeaturedItemCell.swift */,
+				3FE6760E2722AC060021E10A /* MaterialTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -295,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				3F6828012710F154004E53CB /* FeaturedViewModel.swift */,
-				3F355B4A2711D79600468310 /* FeaturedCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -356,11 +357,10 @@
 		3F4F77092710AFD10032A48B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F4F770A2710AFD10032A48B /* PokemonBanner.swift */,
-				3F4F770B2710AFD10032A48B /* PokemonCatalogue.swift */,
-				3F4F770C2710AFD10032A48B /* PokemonCollections.swift */,
 				3F6827DF2710B9CA004E53CB /* FeaturedApiItem.swift */,
 				3F6827E32710BA1B004E53CB /* FeaturedApiCollection.swift */,
+				3FA4D3FC272EA6280045F321 /* CategoryApiCollection.swift */,
+				3F913B5B27316C1800CEBCD3 /* AppApiData.swift.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,19 +388,44 @@
 			isa = PBXGroup;
 			children = (
 				3F6827FE2710E720004E53CB /* FeaturedItem.swift */,
+				3F913B5727303EA900CEBCD3 /* CategoryItems.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3FE676102722AD0A0021E10A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3F9AD499272469DB001B979E /* JetBrainsMono-Bold.ttf */,
+				3F9AD497272469DB001B979E /* JetBrainsMono-BoldItalic.ttf */,
+				3F9AD496272469DB001B979E /* JetBrainsMono-Light.ttf */,
+				3F9AD495272469DB001B979E /* JetBrainsMono-LightItalic.ttf */,
+				3F9AD498272469DB001B979E /* JetBrainsMono-Medium.ttf */,
+				3F9AD49A272469DB001B979E /* JetBrainsMono-MediumItalic.ttf */,
+				3FE676112722AD390021E10A /* Montserrat-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7F2BB611450E87E1AB8324DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8AC13A353FF59A11B0FB26A /* Pods_SteamApp.framework */,
+				2567A5E44A3D511C6E188EE9 /* Pods_SteamApp_SteamAppUITests.framework */,
+				994934F24D8960C13059F160 /* Pods_SteamAppTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E8DB89345F95098A0783FCF2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EA1C3950B77BC157BEF4C05B /* Pods-SteamApp.debug.xcconfig */,
-				409B08269349FA8B65DA9661 /* Pods-SteamApp.release.xcconfig */,
-				EEF3D7F0EC711BE4D74A6D5E /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */,
-				FD04058274A97CEEA16F0059 /* Pods-SteamApp-SteamAppUITests.release.xcconfig */,
-				655578B479DAAD670FC7EABD /* Pods-SteamAppTests.debug.xcconfig */,
-				D733BF9AB30AE255869F7E79 /* Pods-SteamAppTests.release.xcconfig */,
+				08DF56AE3AF527676BFEF7C0 /* Pods-SteamApp.debug.xcconfig */,
+				26A6E53269B14ADA34DE551F /* Pods-SteamApp.release.xcconfig */,
+				382EB77C7BFC9783E28408E0 /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */,
+				0FE1A53617E4C7D76FC4CAAE /* Pods-SteamApp-SteamAppUITests.release.xcconfig */,
+				3F0DB30F4D59DF17C8778542 /* Pods-SteamAppTests.debug.xcconfig */,
+				4A6DCB151819ADA0D436C9B6 /* Pods-SteamAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -412,11 +437,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4F76EC2710AFB20032A48B /* Build configuration list for PBXNativeTarget "SteamApp" */;
 			buildPhases = (
-				4EFAEB1F7BB60B70E1C6D7AB /* [CP] Check Pods Manifest.lock */,
+				A8CC5B8158F254569A6D28E9 /* [CP] Check Pods Manifest.lock */,
 				3F4F76BB2710AFB00032A48B /* Sources */,
 				3F4F76BC2710AFB00032A48B /* Frameworks */,
 				3F4F76BD2710AFB00032A48B /* Resources */,
-				CB928A4E23E79A027A7DCEE1 /* [CP] Embed Pods Frameworks */,
+				F13E1C0C1567911E0FFF15BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -431,7 +456,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4F76EF2710AFB20032A48B /* Build configuration list for PBXNativeTarget "SteamAppTests" */;
 			buildPhases = (
-				20CE6A6CA1FD6AAD77A58C7B /* [CP] Check Pods Manifest.lock */,
+				415BC8C22CAFEA0276F7D7CD /* [CP] Check Pods Manifest.lock */,
 				3F4F76D42710AFB20032A48B /* Sources */,
 				3F4F76D52710AFB20032A48B /* Frameworks */,
 				3F4F76D62710AFB20032A48B /* Resources */,
@@ -450,11 +475,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4F76F22710AFB20032A48B /* Build configuration list for PBXNativeTarget "SteamAppUITests" */;
 			buildPhases = (
-				F0400F47D22C5CC1DCDEAC05 /* [CP] Check Pods Manifest.lock */,
+				A29CE6E639356A677F043AD5 /* [CP] Check Pods Manifest.lock */,
 				3F4F76DE2710AFB20032A48B /* Sources */,
 				3F4F76DF2710AFB20032A48B /* Frameworks */,
 				3F4F76E02710AFB20032A48B /* Resources */,
-				66EFC5672A3E3330905D2276 /* [CP] Embed Pods Frameworks */,
+				7CB705C3C32AD19AFED292BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -514,9 +539,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE676132722AE480021E10A /* Montserrat-Light.ttf in Resources */,
 				3F4F76D22710AFB20032A48B /* LaunchScreen.storyboard in Resources */,
 				3F4F76CF2710AFB20032A48B /* Assets.xcassets in Resources */,
-				3F4F76CA2710AFB00032A48B /* Main.storyboard in Resources */,
+				3F9AD49C272469DB001B979E /* JetBrainsMono-Light.ttf in Resources */,
+				3F9AD49F272469DB001B979E /* JetBrainsMono-Bold.ttf in Resources */,
+				3F9AD4A0272469DB001B979E /* JetBrainsMono-MediumItalic.ttf in Resources */,
+				3F9AD49B272469DB001B979E /* JetBrainsMono-LightItalic.ttf in Resources */,
+				3F9AD49E272469DB001B979E /* JetBrainsMono-Medium.ttf in Resources */,
+				3F9AD49D272469DB001B979E /* JetBrainsMono-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +568,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20CE6A6CA1FD6AAD77A58C7B /* [CP] Check Pods Manifest.lock */ = {
+		415BC8C22CAFEA0276F7D7CD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -559,29 +590,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4EFAEB1F7BB60B70E1C6D7AB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SteamApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66EFC5672A3E3330905D2276 /* [CP] Embed Pods Frameworks */ = {
+		7CB705C3C32AD19AFED292BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -598,24 +607,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SteamApp-SteamAppUITests/Pods-SteamApp-SteamAppUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CB928A4E23E79A027A7DCEE1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F0400F47D22C5CC1DCDEAC05 /* [CP] Check Pods Manifest.lock */ = {
+		A29CE6E639356A677F043AD5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -637,6 +629,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A8CC5B8158F254569A6D28E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SteamApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F13E1C0C1567911E0FFF15BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SteamApp/Pods-SteamApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -650,24 +681,23 @@
 				3F4F77262710AFD10032A48B /* MainViewController.swift in Sources */,
 				3F4F77142710AFD10032A48B /* PokedexCell.swift in Sources */,
 				3F6827F42710E00B004E53CB /* FeaturedRepository.swift in Sources */,
+				3FE6760F2722AC060021E10A /* MaterialTextField.swift in Sources */,
 				3F4F77292710AFD10032A48B /* InitViewController.swift in Sources */,
+				3F913B5827303EA900CEBCD3 /* CategoryItems.swift in Sources */,
 				3F4F77232710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */,
 				3F4F772C2710AFD10032A48B /* ApiError.swift in Sources */,
 				3F4F77322710AFD10032A48B /* NetworkLogger.swift in Sources */,
 				3F4F771D2710AFD10032A48B /* Router.swift in Sources */,
 				3F4F77412710AFD10032A48B /* BindableType.swift in Sources */,
-				3F355B4B2711D79600468310 /* FeaturedCellViewModel.swift in Sources */,
 				3F4F77172710AFD10032A48B /* UIView.swift in Sources */,
 				3F4F77442710AFD10032A48B /* NibIdetifiable.swift in Sources */,
 				3F4F77472710AFD10032A48B /* AppGenericContextTask.swift in Sources */,
-				3F4F773E2710AFD10032A48B /* PokemonCollections.swift in Sources */,
 				3F6827E42710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */,
 				3F6827FF2710E720004E53CB /* FeaturedItem.swift in Sources */,
 				3F6827F82710E038004E53CB /* FeaturedProvider.swift in Sources */,
 				3F6827EC2710C52C004E53CB /* Numbers.swift in Sources */,
-				3F4F76C72710AFB00032A48B /* ViewController.swift in Sources */,
 				3F6827DE2710B244004E53CB /* FeaturedItemCell.swift in Sources */,
-				3F4F773B2710AFD10032A48B /* PokemonCatalogue.swift in Sources */,
+				3FA4D3FD272EA6290045F321 /* CategoryApiCollection.swift in Sources */,
 				3F6827E02710B9CA004E53CB /* FeaturedApiItem.swift in Sources */,
 				3F4F77202710AFD10032A48B /* UIViewController+Preview.swift in Sources */,
 				3F4F76C32710AFB00032A48B /* AppDelegate.swift in Sources */,
@@ -675,8 +705,8 @@
 				3F6827E82710C2C6004E53CB /* UIColor.swift in Sources */,
 				3F6828022710F154004E53CB /* FeaturedViewModel.swift in Sources */,
 				3F4F76C52710AFB00032A48B /* SceneDelegate.swift in Sources */,
-				3F4F77382710AFD10032A48B /* PokemonBanner.swift in Sources */,
 				3F4F77352710AFD10032A48B /* Endpoint.swift in Sources */,
+				3F913B5C27316C1800CEBCD3 /* AppApiData.swift.swift in Sources */,
 				3F6827FB2710E318004E53CB /* FeaturedClient.swift in Sources */,
 				3F4F772F2710AFD10032A48B /* ApiClient.swift in Sources */,
 			);
@@ -692,31 +722,30 @@
 				3F6827E52710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */,
 				3F4F77182710AFD10032A48B /* UIView.swift in Sources */,
 				3F4F772A2710AFD10032A48B /* InitViewController.swift in Sources */,
-				3F4F773F2710AFD10032A48B /* PokemonCollections.swift in Sources */,
 				3F4F77212710AFD10032A48B /* UIViewController+Preview.swift in Sources */,
 				3F4F77452710AFD10032A48B /* NibIdetifiable.swift in Sources */,
 				3F4F77482710AFD10032A48B /* AppGenericContextTask.swift in Sources */,
 				3F6828032710F154004E53CB /* FeaturedViewModel.swift in Sources */,
 				3F6827E92710C2C6004E53CB /* UIColor.swift in Sources */,
-				3F4F77392710AFD10032A48B /* PokemonBanner.swift in Sources */,
 				3F4F77332710AFD10032A48B /* NetworkLogger.swift in Sources */,
 				3F6827F12710C8C7004E53CB /* ImageURLProtocol.swift in Sources */,
 				3F6827E12710B9CA004E53CB /* FeaturedApiItem.swift in Sources */,
+				3FED77CC272DA5970086E3C8 /* FeaturedItemCell.swift in Sources */,
 				3F4F77122710AFD10032A48B /* MainViewHeaderCell.swift in Sources */,
 				3F4F77422710AFD10032A48B /* BindableType.swift in Sources */,
+				3F913B5D27316C1800CEBCD3 /* AppApiData.swift.swift in Sources */,
 				3F6827F52710E00B004E53CB /* FeaturedRepository.swift in Sources */,
 				3F6827FC2710E318004E53CB /* FeaturedClient.swift in Sources */,
 				3F4F76DD2710AFB20032A48B /* SteamAppTests.swift in Sources */,
 				3F4F771B2710AFD10032A48B /* UIViewController+Router.swift in Sources */,
 				3F4F77272710AFD10032A48B /* MainViewController.swift in Sources */,
 				3F4F771E2710AFD10032A48B /* Router.swift in Sources */,
-				3F355B4C2711D79600468310 /* FeaturedCellViewModel.swift in Sources */,
 				3F6828002710E720004E53CB /* FeaturedItem.swift in Sources */,
+				3F913B5927303EA900CEBCD3 /* CategoryItems.swift in Sources */,
 				3F6827ED2710C52C004E53CB /* Numbers.swift in Sources */,
 				3F6827F92710E038004E53CB /* FeaturedProvider.swift in Sources */,
 				3F4F77152710AFD10032A48B /* PokedexCell.swift in Sources */,
 				3F4F77302710AFD10032A48B /* ApiClient.swift in Sources */,
-				3F4F773C2710AFD10032A48B /* PokemonCatalogue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,8 +756,9 @@
 				3F4F77342710AFD10032A48B /* NetworkLogger.swift in Sources */,
 				3F4F77192710AFD10032A48B /* UIView.swift in Sources */,
 				3F4F771C2710AFD10032A48B /* UIViewController+Router.swift in Sources */,
-				3F4F77402710AFD10032A48B /* PokemonCollections.swift in Sources */,
+				3FED77CB272DA5900086E3C8 /* FeaturedItem.swift in Sources */,
 				3F4F77162710AFD10032A48B /* PokedexCell.swift in Sources */,
+				3FED77CD272DA5980086E3C8 /* FeaturedItemCell.swift in Sources */,
 				3F4F77372710AFD10032A48B /* Endpoint.swift in Sources */,
 				3F6827E22710B9CA004E53CB /* FeaturedApiItem.swift in Sources */,
 				3F4F77252710AFD10032A48B /* AppNavigationConfiguration.swift in Sources */,
@@ -737,17 +767,19 @@
 				3F4F772E2710AFD10032A48B /* ApiError.swift in Sources */,
 				3F4F77492710AFD10032A48B /* AppGenericContextTask.swift in Sources */,
 				3F4F77462710AFD10032A48B /* NibIdetifiable.swift in Sources */,
+				3F913B5A27303EA900CEBCD3 /* CategoryItems.swift in Sources */,
 				3F6827EA2710C2C6004E53CB /* UIColor.swift in Sources */,
+				3FED77CA272DA5770086E3C8 /* FeaturedRepository.swift in Sources */,
 				3F4F772B2710AFD10032A48B /* InitViewController.swift in Sources */,
 				3F4F771F2710AFD10032A48B /* Router.swift in Sources */,
 				3F4F77312710AFD10032A48B /* ApiClient.swift in Sources */,
+				3FED77CE272EA3180086E3C8 /* FeaturedClient.swift in Sources */,
 				3F6827F22710C8C7004E53CB /* ImageURLProtocol.swift in Sources */,
 				3F4F76E92710AFB20032A48B /* SteamAppUITestsLaunchTests.swift in Sources */,
 				3F4F77132710AFD10032A48B /* MainViewHeaderCell.swift in Sources */,
 				3F6827E62710BA1B004E53CB /* FeaturedApiCollection.swift in Sources */,
-				3F4F773A2710AFD10032A48B /* PokemonBanner.swift in Sources */,
-				3F4F773D2710AFD10032A48B /* PokemonCatalogue.swift in Sources */,
 				3F6827EE2710C52C004E53CB /* Numbers.swift in Sources */,
+				3F913B5E27316C1800CEBCD3 /* AppApiData.swift.swift in Sources */,
 				3F4F76E72710AFB20032A48B /* SteamAppUITests.swift in Sources */,
 				3F4F77282710AFD10032A48B /* MainViewController.swift in Sources */,
 			);
@@ -769,14 +801,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3F4F76C82710AFB00032A48B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F4F76C92710AFB00032A48B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3F4F76D02710AFB20032A48B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -839,7 +863,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -894,7 +918,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -906,7 +930,7 @@
 		};
 		3F4F76ED2710AFB20032A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA1C3950B77BC157BEF4C05B /* Pods-SteamApp.debug.xcconfig */;
+			baseConfigurationReference = 08DF56AE3AF527676BFEF7C0 /* Pods-SteamApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -917,8 +941,7 @@
 				INFOPLIST_FILE = SteamApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -936,7 +959,7 @@
 		};
 		3F4F76EE2710AFB20032A48B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 409B08269349FA8B65DA9661 /* Pods-SteamApp.release.xcconfig */;
+			baseConfigurationReference = 26A6E53269B14ADA34DE551F /* Pods-SteamApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -947,8 +970,7 @@
 				INFOPLIST_FILE = SteamApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -966,7 +988,7 @@
 		};
 		3F4F76F02710AFB20032A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 655578B479DAAD670FC7EABD /* Pods-SteamAppTests.debug.xcconfig */;
+			baseConfigurationReference = 3F0DB30F4D59DF17C8778542 /* Pods-SteamAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -992,7 +1014,7 @@
 		};
 		3F4F76F12710AFB20032A48B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D733BF9AB30AE255869F7E79 /* Pods-SteamAppTests.release.xcconfig */;
+			baseConfigurationReference = 4A6DCB151819ADA0D436C9B6 /* Pods-SteamAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1018,7 +1040,7 @@
 		};
 		3F4F76F32710AFB20032A48B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEF3D7F0EC711BE4D74A6D5E /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 382EB77C7BFC9783E28408E0 /* Pods-SteamApp-SteamAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1042,7 +1064,7 @@
 		};
 		3F4F76F42710AFB20032A48B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD04058274A97CEEA16F0059 /* Pods-SteamApp-SteamAppUITests.release.xcconfig */;
+			baseConfigurationReference = 0FE1A53617E4C7D76FC4CAAE /* Pods-SteamApp-SteamAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

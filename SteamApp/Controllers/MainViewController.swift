@@ -7,14 +7,18 @@
 
 import UIKit
 import RouteComposer
+import Kingfisher
+import Combine
 
 class MainViewControllerFactory<VC: UINavigationController, C>: Factory {
     
     func build(with context: C) throws -> VC {
         let viewController = MainViewController()
         viewController.bind(to: FeaturedViewModel(router: viewController.router, featuredRepository: FeaturedRepository.shared))
-
+        viewController.title = "Shop"
+        
         let navViewController = UINavigationController(rootViewController: viewController)
+        navViewController.navigationBar.prefersLargeTitles = true
         return navViewController as! VC
     }
     
@@ -33,7 +37,9 @@ class MainViewController: UIViewController, BindableType {
     var dataSource: UICollectionViewDiffableDataSource<FeaturedHashableSection, FeaturedItem>! = nil
     var collectionView: UICollectionView! = nil
     var viewModel: FeaturedViewModelProtocol!
-
+    
+    private var subscribitions = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierarchy()
@@ -44,17 +50,7 @@ class MainViewController: UIViewController, BindableType {
     }
     
     @objc private func filterButtonTapped(_ item: UIBarButtonItem) {
-        if let values = viewModel.items.value {
-            var snapshot = NSDiffableDataSourceSnapshot<FeaturedHashableSection, FeaturedItem>()
-            
-            snapshot.appendSections(values)
-            values.forEach { section in
-                snapshot.appendItems(section.items ?? [], toSection: section)
-                //snapshot.reloadItems(section.items ?? [])
-            }
-            
-            self.dataSource.apply(snapshot, animatingDifferences: true)
-        }
+        viewModel.getFeaturedItems()
     }
     
     private func configureHierarchy() {
@@ -64,15 +60,21 @@ class MainViewController: UIViewController, BindableType {
         
         collectionView.register(FeaturedItemCell.self, forCellWithReuseIdentifier: FeaturedItemCell.reusableCellIdetifier)
         
-//        collectionView.register(MainViewHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewHeaderCell.reusableCellIdetifier)
+        //        collectionView.register(MainViewHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewHeaderCell.reusableCellIdetifier)
         view.addSubview(collectionView)
     }
     
-    private func createLayout() -> UICollectionViewLayout {
+    func createLayout(items: [FeaturedHashableSection]? = nil) -> UICollectionViewLayout {
         let sectionProvider: UICollectionViewCompositionalLayoutSectionProvider = { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            guard let sectionKind = FeaturedSection(rawValue: sectionIndex) else { return nil }
-            let section = self.layoutSection(for: sectionKind, layoutEnvironment: layoutEnvironment)
-            return section
+            if items == nil {
+                guard let sectionKind = FeaturedSection(rawValue: sectionIndex) else { return nil }
+                let section = self.layoutSection(for: sectionKind, layoutEnvironment: layoutEnvironment)
+                return section
+            } else {
+                guard let sectionKind = items?[sectionIndex].type else { return nil }
+                let section = self.layoutSection(for: sectionKind, layoutEnvironment: layoutEnvironment)
+                return section
+            }
         }
         
         let config = UICollectionViewCompositionalLayoutConfiguration()
@@ -100,7 +102,7 @@ class MainViewController: UIViewController, BindableType {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 0, leading: inset, bottom: 0, trailing: inset)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(275))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
@@ -110,20 +112,20 @@ class MainViewController: UIViewController, BindableType {
     
     private func featuredWinSection() -> NSCollectionLayoutSection {
         let inset: CGFloat = 10
-            // Item
+        // Item
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-            
+        
         // Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .absolute(250))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7), heightDimension: .absolute(230))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
+        
         // Section
         let section = NSCollectionLayoutSection(group: group)
         // after section delcaration…
         //section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-            
+        
         section.orthogonalScrollingBehavior = .continuous
         //section.boundarySupplementaryItems = [header]
         return section
@@ -131,20 +133,20 @@ class MainViewController: UIViewController, BindableType {
     
     private func featuredMACSection() -> NSCollectionLayoutSection {
         let inset: CGFloat = 10
-            // Item
+        // Item
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-            
+        
         // Group
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .absolute(250))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-            
+        
         // Section
         let section = NSCollectionLayoutSection(group: group)
         // after section delcaration…
         //section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
-            
+        
         section.orthogonalScrollingBehavior = .continuous
         //section.boundarySupplementaryItems = [header]
         return section
@@ -163,54 +165,73 @@ extension MainViewController {
             }
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeaturedItemCell.reusableCellIdetifier, for: indexPath) as? FeaturedItemCell else { fatalError("Cannot create the cell") }
-
-            let viewModel = FeaturedCellViewModel(featuredItem: item, router: self.router, featuredRepository: FeaturedRepository.shared)
-            cell.bind(to: viewModel)
+            cell.configureView(with: item)
+            cell.imageView.kf.indicatorType = .activity
+            KF.url(URL(string: item.headerImage))
+                .fade(duration: 1)
+                .loadDiskFileSynchronously()
+                .onProgress { (received, total) in print("\(indexPath.row + 1): \(received)/\(total)") }
+                .onSuccess {
+                    print($0)
+                }
+                .onFailure { err in print("Error: \(err)") }
+                .set(to: cell.imageView)
             return cell
         }
-
         
         
-//        dataSource.supplementaryViewProvider = { (
-//            collectionView: UICollectionView,
-//            kind: String,
-//            indexPath: IndexPath) -> UICollectionReusableView? in
-//
-//            if indexPath.section == 1 {
-//                let header: MainViewHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewHeaderCell.reusableCellIdetifier, for: indexPath) as! MainViewHeaderCell
-//
-//                header.mainLabel.text = "Catalogue"
-//                header.mainLabel.textColor = .black
-//                return header
-//            } else if indexPath.section == 2 {
-//                let header: MainViewHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewHeaderCell.reusableCellIdetifier, for: indexPath) as! MainViewHeaderCell
-//
-//                header.mainLabel.text = "Collections"
-//                header.mainLabel.textColor = .black
-//                return header
-//            } else {
-//                return nil
-//            }
-//        }
+        
+        //        dataSource.supplementaryViewProvider = { (
+        //            collectionView: UICollectionView,
+        //            kind: String,
+        //            indexPath: IndexPath) -> UICollectionReusableView? in
+        //
+        //            if indexPath.section == 1 {
+        //                let header: MainViewHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewHeaderCell.reusableCellIdetifier, for: indexPath) as! MainViewHeaderCell
+        //
+        //                header.mainLabel.text = "Catalogue"
+        //                header.mainLabel.textColor = .black
+        //                return header
+        //            } else if indexPath.section == 2 {
+        //                let header: MainViewHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainViewHeaderCell.reusableCellIdetifier, for: indexPath) as! MainViewHeaderCell
+        //
+        //                header.mainLabel.text = "Collections"
+        //                header.mainLabel.textColor = .black
+        //                return header
+        //            } else {
+        //                return nil
+        //            }
+        //        }
         
     }
     
     func bindViewModel() {
         
-        viewModel.items.bind({ [weak self] items in
-            guard let self = self, let values = items else { return }
-            var snapshot = NSDiffableDataSourceSnapshot<FeaturedHashableSection, FeaturedItem>()
-            
-            snapshot.appendSections(values)
-            values.forEach { section in
-                snapshot.appendItems(section.items ?? [], toSection: section)
-            }
-            self.dataSource.apply(snapshot)
-        })
-        
+        viewModel.featuredItemsPublisher
+            .sink(receiveValue: { [weak self] items in
+                guard let self = self, let values = items else { return }
+                
+                var snapshot = NSDiffableDataSourceSnapshot<FeaturedHashableSection, FeaturedItem>()
+                
+                var sectionsValues: [FeaturedHashableSection] = []
+                values.forEach { section in
+                    if let items = section.items, !items.isEmpty {
+                        sectionsValues.append(section)
+                    }
+                }
+                
+                let layout = self.createLayout(items: sectionsValues)
+                self.collectionView.collectionViewLayout = layout
+                
+                snapshot.appendSections(sectionsValues)
+                
+                sectionsValues.forEach { section in
+                    snapshot.appendItems(section.items ?? [], toSection: section)
+                }
+                self.dataSource.apply(snapshot)
+            })
+            .store(in: &subscribitions)
         
         viewModel.getFeaturedItems()
     }
-    
-    
 }

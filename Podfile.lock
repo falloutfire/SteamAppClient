@@ -1,16 +1,25 @@
 PODS:
+  - Alamofire (5.4.4)
+  - Kingfisher (7.1.1)
   - RouteComposer (2.7.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.4)
+  - Kingfisher (~> 7.0)
   - RouteComposer
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Kingfisher
   trunk:
     - RouteComposer
 
 SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   RouteComposer: 25125015ad0367316f7e2dc507316dad857d6712
 
-PODFILE CHECKSUM: 84b30acafc85b0deabffa2a9768c159e9122211f
+PODFILE CHECKSUM: a5dba5aa865efd94216128b9a9bfb7bb510311bf
 
 COCOAPODS: 1.10.2

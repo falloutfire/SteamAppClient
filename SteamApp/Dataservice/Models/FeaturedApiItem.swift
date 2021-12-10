@@ -41,15 +41,8 @@ struct FeaturedApiItem: Codable {
         case headline
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: FeaturedApiItem, rhs: FeaturedApiItem) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
     func transformToFeaturedItem() -> FeaturedItem {
         return FeaturedItem(id: self.id, type: self.type, name: self.name, discounted: self.discounted, discountPercent: self.discountPercent, originalPrice: self.originalPrice ?? 1, finalPrice: self.finalPrice, currency: self.currency ?? "", largeCapsuleImage: self.largeCapsuleImage, smallCapsuleImage: self.smallCapsuleImage, windowsAvailable: self.windowsAvailable, macAvailable: self.macAvailable, linuxAvailable: self.macAvailable, streamingvideoAvailable: self.streamingvideoAvailable, headerImage: self.headerImage, controllerSupport: self.controllerSupport, discountExpiration: self.discountExpiration, image: nil)
     }
 }
+

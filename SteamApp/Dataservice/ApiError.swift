@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum APIError: Error, ErrorDescriptable {
     
@@ -13,31 +14,54 @@ enum APIError: Error, ErrorDescriptable {
     case csrfToken
     case notFound
     case networkProblem
-    case badRequest(Error?)
+    case badRequest(Data?, Error?)
     case requestFailed
     case invalidData
-    case unknown(HTTPURLResponse?, Error?)
+    case unknown(HTTPURLResponse?, Data?, Error?)
+    case uiError(String?)
+    case sessionTaskError(Error?)
     
-    init(response: URLResponse?, error: Error?) {
+    init(error: String?) {
+        self = .uiError(error)
+    }
+    
+    init(response: URLResponse?, data: Data?, error: AFError?) {
+        guard let sessionError = error, !sessionError.isSessionTaskError else {
+            self = .sessionTaskError(error)
+            return
+        }
+        
+        guard let retryError = error, !retryError.isRequestRetryError else {
+            if let errorResponse = response as? HTTPURLResponse {
+                self = .unknown(errorResponse, data, error)
+            } else {
+                self = .unknown(nil, data, error)
+            }
+            return
+        }
+        self.init(response: response, data: data, error: error as Error?)
+    }
+    
+    init(response: URLResponse?, data: Data?, error: Error?) {
         guard let response = response as? HTTPURLResponse else {
-            self = .unknown(nil, error)
+            self = .unknown(nil, data, error)
             return
         }
         switch response.statusCode {
         case 400:
-            self = .badRequest(error)
+            self = .badRequest(data, error)
         case 401:
             self = .notAuthenticated
         case 403:
             if response.description == ErrorMessages.Default.CSRFToken {
                 self = .csrfToken
             } else {
-                self = .unknown(response, error)
+                self = .unknown(response, data, error)
             }
         case 404:
             self = .notFound
         default:
-            self = .unknown(response, error)
+            self = .unknown(response, data, error)
         }
     }
     
@@ -56,20 +80,42 @@ enum APIError: Error, ErrorDescriptable {
         }
     }
     
+    var isBadRequest: Bool {
+        switch self {
+        case .requestFailed: return true
+        default:
+            return false
+        }
+    }
+    
     var description: String {
         switch self {
         case .notAuthenticated:
             return ErrorMessages.Default.NotAuthorized
         case .notFound:
             return ErrorMessages.Default.NotFound
-        case .networkProblem, .unknown:
+        case .networkProblem:
             return ErrorMessages.Default.ServerError
         case .requestFailed, .invalidData:
             return ErrorMessages.Default.RequestFailed
         case .csrfToken:
             return ErrorMessages.Default.CSRFToken
-        case .badRequest(let error):
+        case .unknown(_, let data, let error):
+            if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorValue = json["message"] as? String {
+                return errorValue
+            }
+            
+            return error?.localizedDescription ?? ErrorMessages.Default.ServerError
+        case .badRequest(let data, let error):
+            if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorValue = json["message"] as? String {
+                return errorValue
+            }
+            
             return error?.localizedDescription ?? ErrorMessages.Default.RequestFailed
+        case .uiError(let data):
+            return data ?? ""
+        case .sessionTaskError(_):
+                return ErrorMessages.Default.sessionTaskError
         }
     }
     
@@ -83,18 +129,33 @@ extension APIError: LocalizedError {
             return ErrorMessages.Default.NotAuthorized
         case .notFound:
             return ErrorMessages.Default.NotFound
-        case .networkProblem, .unknown:
+        case .networkProblem:
             return ErrorMessages.Default.ServerError
         case .requestFailed, .invalidData:
             return ErrorMessages.Default.RequestFailed
         case .csrfToken:
             return ErrorMessages.Default.CSRFToken
-        case .badRequest(let error):
+        case .unknown(_, let data, let error):
+            if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorValue = json["message"] as? String {
+                return errorValue
+            }
+            
+            return error?.localizedDescription ?? ErrorMessages.Default.ServerError
+        case .badRequest(let data, let error):
+            if let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let errorValue = json["message"] as? String {
+                return errorValue
+            }
+            
             return error?.localizedDescription ?? ErrorMessages.Default.RequestFailed
+        case .uiError(let data):
+            return data ?? ""
+        case .sessionTaskError(_):
+                return ErrorMessages.Default.sessionTaskError
         }
     }
     
 }
+
 
 // MARK: - Constants
 
@@ -108,6 +169,7 @@ extension APIError {
             static let NotFound = "Bad request error."
             static let RequestFailed = "Resquest failed. Please, try again later."
             static let CSRFToken = "Invalid CSRF token"
+            static let sessionTaskError = "Session Task Error"
         }
     }
 }
